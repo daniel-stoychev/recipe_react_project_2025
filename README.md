@@ -55,6 +55,8 @@ Recipe Manager is a web application that allows users to explore, create, and ma
 - **React** for building the user interface
 - **React Router** for client-side routing
 - **Tailwind CSS** for styling components
+  - npm install @headlessui/react
+  - npm install @heroicons/react
 - **SoftUni Practice Server** for backend CRUD operations
 - **TheMealDB API** for fetching recipe data
 - **AbortController** for managing API requests and handling cancellations
