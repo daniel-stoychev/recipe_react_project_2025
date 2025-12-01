@@ -1,4 +1,4 @@
-import myImage from "../assets/images/cooking-hat.png";
+import myImage from "../assets/images/recipes_logo.png";
 import { useState } from "react";
 import {
   Dialog,
@@ -72,7 +72,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img alt="" src={myImage} className="h-20 w-auto" />
+            <img alt="" src={myImage} className="h-30 w-auto" />
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -88,22 +88,22 @@ export default function Header() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
           <a
             href="#"
-            className="text-sm/6 font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
           >
             Home
           </a>
           <a
             href="#"
-            className="text-sm/6 font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
           >
             Recipe Catalog
           </a>
           <Popover className="relative">
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
+            <PopoverButton className="flex items-center gap-x-1 text-base font-semibold text-gray-900">
               More
               <ChevronDownIcon
                 aria-hidden="true"
-                className="size-5 flex-none text-gray-400"
+                className=" size-5 flex-none text-gray-400"
               />
             </PopoverButton>
 
@@ -158,13 +158,13 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
             href="#"
-            className="text-sm/6 font-semibold text-gray-900 mr-10 hover:border-b-1 pl-2 pr-2"
+            className="text-base font-semibold text-gray-900 mr-10 hover:border-b-1 pl-2 pr-2"
           >
             Register <span aria-hidden="true"></span>
           </a>
           <a
             href="#"
-            className="text-sm/6 font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
           >
             Log in <span aria-hidden="true"></span>
           </a>
