@@ -19,7 +19,7 @@ export default function Login() {
     })
       .then((response) => response.json())
       .then((result) => {
-        console.log(result), onLogin(result);
+        onLogin(result);
       });
 
     navigate("/");

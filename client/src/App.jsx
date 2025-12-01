@@ -1,20 +1,21 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useNavigate } from "react-router";
 import Header from "./components/Header.jsx";
 import Home from "./components/Home.jsx";
 import Catalog from "./components/Catalog.jsx";
 import Register from "./components/Register.jsx";
 import Login from "./components/Login.jsx";
-import Profile from "./components/Profile.jsx";
+import UserProfile from "./components/UserProfile.jsx";
 import UserContext from "./contexts/UserContext.js";
 import { useState } from "react";
 
 function App() {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
   const loginHandler = (user) => {
     setUser(user);
   };
   const logoutHandler = () => {
-    setUser({});
+    setUser({}), navigate("/");
   };
   const contextValue = {
     user,
@@ -32,7 +33,7 @@ function App() {
         <Route path="/admin">
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-          <Route path="profile" element={<Profile />} />
+          <Route path="profile" element={<UserProfile />} />
         </Route>
       </Routes>
     </UserContext.Provider>
