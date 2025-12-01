@@ -2,6 +2,21 @@ import { Link } from "react-router";
 import hatImage from "../assets/images/hat.png";
 
 export default function Login() {
+  const loginClickHandler = (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const { email, password } = Object.fromEntries(formData);
+    fetch("http://localhost:3030/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result));
+  };
+
   return (
     <>
       <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -17,7 +32,7 @@ export default function Login() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form className="space-y-6" onSubmit={loginClickHandler}>
             <div>
               <label
                 htmlFor="email"

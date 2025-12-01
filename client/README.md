@@ -64,11 +64,20 @@ Recipe Manager is a web application that allows users to explore, create, and ma
 
 ## Getting Started
 
+### Download repository and run client
+
 To get started with the project, clone the repository and install the dependencies using the following commands:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/daniel-stoychev/recipe_react_project_2025.git
 cd recipe-sharing-app
 npm install
 npm run dev
 ```
+
+### Start the server
+
+- Server available at: `https://github.com/softuni-practice-server/softuni-practice-server`
+- Go to Releases
+- Download locally
+- Navigate to server folder & run: `node server.js`
