@@ -78,6 +78,4 @@ npm run dev
 ### Start the server
 
 - Server available at: `https://github.com/softuni-practice-server/softuni-practice-server`
-- Go to Releases
-- Download locally
 - Navigate to server folder & run: `node server.js`

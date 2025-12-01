@@ -1,7 +1,11 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import hatImage from "../assets/images/hat.png";
+import { useContext } from "react";
+import UserContext from "../contexts/UserContext.js";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const { onLogin } = useContext(UserContext);
   const loginClickHandler = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -14,7 +18,11 @@ export default function Login() {
       body: JSON.stringify({ email, password }),
     })
       .then((response) => response.json())
-      .then((result) => console.log(result));
+      .then((result) => {
+        console.log(result), onLogin(result);
+      });
+
+    navigate("/");
   };
 
   return (
