@@ -1,4 +1,4 @@
-import hatImage from "../assets/images/hat.png";
+import hatImage from "../../assets/images/hat.png";
 
 export default function Register() {
   const registerClickHandler = (event) => {

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router";
-import hatImage from "../assets/images/hat.png";
+import hatImage from "../../assets/images/hat.png";
 import { useContext } from "react";
-import UserContext from "../contexts/UserContext.js";
+import UserContext from "../../contexts/UserContext.js";
 
 export default function Login() {
   const navigate = useNavigate();

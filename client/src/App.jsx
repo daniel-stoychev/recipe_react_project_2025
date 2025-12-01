@@ -2,9 +2,9 @@ import { Route, Routes, useNavigate } from "react-router";
 import Header from "./components/Header.jsx";
 import Home from "./components/Home.jsx";
 import Catalog from "./components/Catalog.jsx";
-import Register from "./components/Register.jsx";
-import Login from "./components/Login.jsx";
-import UserProfile from "./components/UserProfile.jsx";
+import Register from "./components/user/Register.jsx";
+import Login from "./components/user/Login.jsx";
+import UserProfile from "./components/user/UserProfile.jsx";
 import UserContext from "./contexts/UserContext.js";
 import { useState } from "react";
 
