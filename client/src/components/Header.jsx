@@ -1,5 +1,6 @@
+import UserContext from "../contexts/UserContext.js";
 import myImage from "../assets/images/recipes_logo.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import {
   Dialog,
   DialogPanel,
@@ -62,6 +63,7 @@ const callsToAction = [
 ];
 
 export default function Header() {
+  const { isAuthenticated, user } = useContext(UserContext);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -156,20 +158,34 @@ export default function Header() {
             </PopoverPanel>
           </Popover>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link
-            to="/admin/register"
-            className="text-base font-semibold text-gray-900 mr-10 hover:border-b-1 pl-2 pr-2"
-          >
-            Register <span aria-hidden="true"></span>
-          </Link>
-          <Link
-            to="/admin/login"
-            className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
-          >
-            Log in <span aria-hidden="true"></span>
-          </Link>
-        </div>
+        {!isAuthenticated ? (
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link
+              to="/admin/register"
+              className="text-base font-semibold text-gray-900 mr-10 hover:border-b-1 pl-2 pr-2"
+            >
+              Register <span aria-hidden="true"></span>
+            </Link>
+            <Link
+              to="/admin/login"
+              className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            >
+              Log in <span aria-hidden="true"></span>
+            </Link>
+          </div>
+        ) : (
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <p className="text-base font-semibold text-gray-900 pl-2 pr-2">
+              {user.email}
+            </p>
+            <Link
+              to="/admin/logout"
+              className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            >
+              Logout <span aria-hidden="true"></span>
+            </Link>
+          </div>
+        )}
       </nav>
       <Dialog
         open={mobileMenuOpen}
