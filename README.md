@@ -70,7 +70,7 @@ To get started with the project, clone the repository and install the dependenci
 
 ```bash
 git clone https://github.com/daniel-stoychev/recipe_react_project_2025.git
-cd recipe-sharing-app
+cd client
 npm install
 npm run dev
 ```
