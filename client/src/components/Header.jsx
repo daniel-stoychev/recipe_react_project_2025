@@ -178,6 +178,12 @@ export default function Header() {
             <p className="text-base font-semibold text-gray-900 pl-2 pr-2">
               {user.email}
             </p>
+            <Link
+              to="/admin/profile"
+              className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            >
+              Profile <span aria-hidden="true"></span>
+            </Link>
             <button
               onClick={() => onLogout()}
               className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
