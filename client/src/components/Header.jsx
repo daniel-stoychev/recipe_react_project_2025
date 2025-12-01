@@ -179,6 +179,12 @@ export default function Header() {
               {user.email}
             </p>
             <Link
+              to="/admin/recipe/create"
+              className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
+            >
+              Create Recipe <span aria-hidden="true"></span>
+            </Link>
+            <Link
               to="/admin/profile"
               className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2"
             >
