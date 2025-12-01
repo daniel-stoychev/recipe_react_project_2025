@@ -17,12 +17,20 @@ export default function Login() {
       },
       body: JSON.stringify({ email, password }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((err) => {
+            throw new Error(err.message);
+          });
+        }
+        return response.json();
+      })
       .then((result) => {
+        console.log(result);
         onLogin(result);
-      });
-
-    navigate("/");
+        navigate("/");
+      })
+      .catch((err) => alert(err.message));
   };
 
   return (

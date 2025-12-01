@@ -14,7 +14,8 @@ export default function CreateRecipe() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" onSubmit={""}>
+        <form className="space-y-6">
+          {/* <form className="space-y-6" onSubmit={""}> */}
           <div>
             <label
               htmlFor="title"

@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router";
 import hatImage from "../../assets/images/hat.png";
 
 export default function Register() {
+  const navigate = useNavigate();
   const registerClickHandler = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -12,8 +14,21 @@ export default function Register() {
       },
       body: JSON.stringify({ email, password }),
     })
-      .then((response) => response.json())
-      .then((result) => console.log(result));
+      .then((response) => {
+        if (!response.ok) {
+          return response.json().then((error) => {
+            throw new Error(error.message);
+          });
+        }
+        return response.json();
+      })
+      .then((result) => {
+        console.log(result);
+        navigate("/");
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
   };
 
   return (
@@ -46,6 +61,7 @@ export default function Register() {
                   type="email"
                   required
                   autoComplete="email"
+                  placeholder="email@example.com"
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
