@@ -4,6 +4,7 @@ const UserContext = createContext({
     user: {},
     isAuthenticated: false,
     onLogin() { },
+    onRegister() { },
     onLogout() { },
 });
 

@@ -16,6 +16,9 @@ function App() {
   const loginHandler = (user) => {
     setUser(user);
   };
+  const registerHandler = (user) => {
+    setUser(user);
+  };
   const logoutHandler = () => {
     setUser({}), navigate("/");
   };
@@ -23,6 +26,7 @@ function App() {
     user,
     isAuthenticated: !!user.email,
     onLogin: loginHandler,
+    onRegister: registerHandler,
     onLogout: logoutHandler,
   };
 

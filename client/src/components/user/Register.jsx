@@ -1,7 +1,10 @@
 import { useNavigate } from "react-router";
 import hatImage from "../../assets/images/hat.png";
+import { useContext } from "react";
+import UserContext from "../../contexts/UserContext.js";
 
 export default function Register() {
+  const { onRegister } = useContext(UserContext);
   const navigate = useNavigate();
   const registerClickHandler = (event) => {
     event.preventDefault();
@@ -24,6 +27,7 @@ export default function Register() {
       })
       .then((result) => {
         console.log(result);
+        onRegister(result);
         navigate("/");
       })
       .catch((err) => {
