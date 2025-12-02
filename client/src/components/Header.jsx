@@ -192,7 +192,7 @@ export default function Header() {
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <p className="text-base font-semibold text-gray-900 pl-2 pr-2">
+            <p className="text-base font-semibold text-gray-500 pl-2 pr-2">
               {user.email}
             </p>
             <NavLink
@@ -217,11 +217,7 @@ export default function Header() {
             </NavLink>
             <button
               onClick={() => onLogout()}
-              className={({ isActive }) =>
-                `text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2 ${
-                  isActive ? "border-b-1" : ""
-                }`
-              }
+              className="text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2 cursor-pointer"
             >
               Logout
             </button>
