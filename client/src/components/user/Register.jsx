@@ -9,13 +9,13 @@ export default function Register() {
   const registerClickHandler = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const { email, password } = Object.fromEntries(formData);
+    const { email, username, password } = Object.fromEntries(formData);
     fetch("http://localhost:3030/users/register", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, username, password }),
     })
       .then((response) => {
         if (!response.ok) {
@@ -66,6 +66,24 @@ export default function Register() {
                   required
                   autoComplete="email"
                   placeholder="email@example.com"
+                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm/6 font-medium text-gray-900"
+              >
+                Username
+              </label>
+              <div className="mt-2">
+                <input
+                  id="username"
+                  name="username"
+                  type="username"
+                  required
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
               </div>
