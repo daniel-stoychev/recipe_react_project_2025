@@ -8,6 +8,7 @@ import UserProfile from "./components/user/UserProfile.jsx";
 import UserContext from "./contexts/UserContext.js";
 import { useState } from "react";
 import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 function App() {
   const navigate = useNavigate();
@@ -34,8 +35,14 @@ function App() {
         <Route path="/admin">
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-          <Route path="profile" element={<UserProfile />} />
-          <Route path="recipe/create" element={<CreateRecipe />} />
+          <Route
+            path="profile"
+            element={<ProtectedRoute element={UserProfile} />}
+          />
+          <Route
+            path="recipe/create"
+            element={<ProtectedRoute element={CreateRecipe} />}
+          />
         </Route>
       </Routes>
     </UserContext.Provider>
