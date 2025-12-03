@@ -12,6 +12,7 @@ export default function CreateRecipe() {
 
     data._createdOn = Date.now();
     data._ownerId = user._id;
+    data._ownerName = user.username;
 
     // console.log(data);
 

@@ -44,7 +44,9 @@ export default function RecipeDetails() {
           <h2 className="text-2xl font-bold text-gray-800">{recipe.title}</h2>
           <div className="flex items-center mt-4 mb-2">
             <FaUser className="text-gray-600 mr-2" />
-            <span className="text-gray-700 font-medium">{recipe._ownerId}</span>
+            <span className="text-gray-700 font-medium">
+              {recipe._ownerName}
+            </span>
           </div>
           <div className="border-b-2 border-amber-700 mb-4"></div>
 
@@ -77,10 +79,10 @@ export default function RecipeDetails() {
           {/* Edit and Delete Buttons */}
           {isOwner && (
             <div className="flex space-x-4 mb-6 mt-5">
-              <button className="bg-amber-900 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700">
+              <button className="bg-amber-600 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700">
                 Edit Recipe
               </button>
-              <button className="bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-500">
+              <button className="bg-red-700 text-white font-semibold py-2 px-4 rounded hover:bg-red-900">
                 Delete Recipe
               </button>
             </div>
