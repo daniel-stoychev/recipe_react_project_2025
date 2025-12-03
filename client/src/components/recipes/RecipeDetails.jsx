@@ -1,24 +1,31 @@
 import { FaUser } from "react-icons/fa";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
+import UserContext from "../../contexts/UserContext.js";
 
 export default function RecipeDetails() {
+  const { user } = useContext(UserContext);
   const { recipeId } = useParams();
-  //   console.log(recipeId);
+  let isOwner = false;
 
   const [recipe, setRecipe] = useState({});
   useEffect(() => {
     fetch(`http://localhost:3030/jsonstore/recipes/${recipeId}`)
       .then((response) => response.json())
       .then((result) => {
-        console.log(result);
         setRecipe(result);
       })
       .catch((err) => alert(err.message));
   }, [recipeId]);
 
   //   return <h1>{recipe.title}</h1>;
+  console.log(user);
+  console.log(recipe);
+
+  if (user._id === recipe._ownerId) {
+    isOwner = true;
+  }
 
   return (
     <div className="max-w-6xl mx-auto mt-10 p-6">
@@ -68,14 +75,16 @@ export default function RecipeDetails() {
           )}
 
           {/* Edit and Delete Buttons */}
-          <div className="flex space-x-4 mb-6 mt-5">
-            <button className="bg-amber-900 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700">
-              Edit Recipe
-            </button>
-            <button className="bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-500">
-              Delete Recipe
-            </button>
-          </div>
+          {isOwner && (
+            <div className="flex space-x-4 mb-6 mt-5">
+              <button className="bg-amber-900 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700">
+                Edit Recipe
+              </button>
+              <button className="bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-500">
+                Delete Recipe
+              </button>
+            </div>
+          )}
 
           {/* Likes */}
           <div className="text-gray-800 font-semibold">
