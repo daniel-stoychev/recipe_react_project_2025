@@ -40,24 +40,24 @@ function App() {
   return (
     <UserContext.Provider value={contextValue}>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/catalog" element={<Catalog />} />
-          <Route path="/admin">
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
-            <Route
-              path="profile"
-              element={<ProtectedRoute element={UserProfile} />}
-            />
-            <Route
-              path="recipe/create"
-              element={<ProtectedRoute element={CreateRecipe} />}
-            />
-          </Route>
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path="/catalog" element={<Catalog />} />
+        <Route path="/admin">
+          <Route path="register" element={<Register />} />
+          <Route path="login" element={<Login />} />
+          {/* <Suspense fallback={<div>Loading...</div>}> */}
+          <Route
+            path="profile"
+            element={<ProtectedRoute element={UserProfile} />}
+          />
+          <Route
+            path="recipe/create"
+            element={<ProtectedRoute element={CreateRecipe} />}
+          />
+          {/* </Suspense> */}
+        </Route>
+      </Routes>
     </UserContext.Provider>
   );
 }
