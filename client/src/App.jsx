@@ -4,10 +4,10 @@ import Home from "./components/Home.jsx";
 import Catalog from "./components/Catalog.jsx";
 import Register from "./components/users/Register.jsx";
 import Login from "./components/users/Login.jsx";
-// import UserProfile from "./components/users/UserProfile.jsx";
+import UserProfile from "./components/users/UserProfile.jsx";
 import UserContext from "./contexts/UserContext.js";
 import { lazy, Suspense, useState } from "react";
-// import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
+import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
 function App() {
@@ -32,23 +32,21 @@ function App() {
   };
 
   //LazyLoad
-  const UserProfile = lazy(() => import("./components/users/UserProfile"));
-  const CreateRecipe = lazy(() =>
-    import("./components/recipes/CreateRecipe.jsx")
-  );
+  // const UserProfile = lazy(() => import("./components/users/UserProfile"));
+  // const CreateRecipe = lazy(() =>
+  //   import("./components/recipes/CreateRecipe.jsx")
+  // );
 
   return (
     <UserContext.Provider value={contextValue}>
+      <Header />
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
-
         <Routes>
           <Route index element={<Home />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/admin">
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
-
             <Route
               path="profile"
               element={<ProtectedRoute element={UserProfile} />}

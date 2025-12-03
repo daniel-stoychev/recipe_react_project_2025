@@ -26,7 +26,7 @@ export default function Login() {
         return response.json();
       })
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         onLogin(result);
         navigate("/");
       })

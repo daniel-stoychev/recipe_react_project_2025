@@ -7,7 +7,7 @@ export default function Home() {
     fetch("http://localhost:3030/jsonstore/recipes")
       .then((response) => response.json())
       .then((result) => {
-        console.log(Object.values(result));
+        // console.log(Object.values(result));
         setRecipes(Object.values(result));
       })
       .catch((err) => alert(err.message));

@@ -3,9 +3,6 @@ import UserContext from "../../contexts/UserContext.js";
 
 export default function UserProfile() {
   const { user } = useContext(UserContext);
-  console.log("TEST");
-
-  console.log(user);
 
   return (
     <div className="max-w-sm mx-auto bg-white shadow-lg rounded-lg overflow-hidden my-4">
