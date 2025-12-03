@@ -3,12 +3,14 @@ import { Link } from "react-router";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
+
   useEffect(() => {
     fetch("http://localhost:3030/jsonstore/recipes")
       .then((response) => response.json())
       .then((result) => {
         // console.log(Object.values(result));
-        setRecipes(Object.values(result));
+        const recipiesObj = Object.values(result);
+        setRecipes(recipiesObj);
       })
       .catch((err) => alert(err.message));
   }, []);

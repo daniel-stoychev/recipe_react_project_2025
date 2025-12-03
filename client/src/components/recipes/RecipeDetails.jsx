@@ -1,12 +1,13 @@
 import { FaUser } from "react-icons/fa";
 
 import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import UserContext from "../../contexts/UserContext.js";
 
 export default function RecipeDetails() {
   const { user } = useContext(UserContext);
   const { recipeId } = useParams();
+  const navigate = useNavigate();
   let isOwner = false;
 
   const [recipe, setRecipe] = useState({});
@@ -26,6 +27,24 @@ export default function RecipeDetails() {
   if (user._id === recipe._ownerId) {
     isOwner = true;
   }
+
+  const deleteClickHandler = async () => {
+    const isConfirmed = confirm(
+      `Are you sure you want to delete recipe: ${recipe.title}`
+    );
+    if (!isConfirmed) {
+      return;
+    }
+
+    try {
+      await fetch(`http://localhost:3030/jsonstore/recipes/${recipe._id}`, {
+        method: "DELETE",
+      });
+      navigate("/");
+    } catch (err) {
+      alert("Unable to delete game: ", err.message);
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto mt-10 p-6">
@@ -80,17 +99,18 @@ export default function RecipeDetails() {
           {isOwner && (
             <div className="flex space-x-4 mb-6 mt-5">
               <Link
-                to={`/recipe/${recipe._id}/edit`}
+                // to={`/recipe/${recipe._id}/edit`}
                 className="bg-amber-600 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700"
               >
                 Edit Recipe
               </Link>
-              <Link
-                to={`/recipe/${recipe._id}/delete`}
+              <button
+                // to={`/recipe/${recipe._id}/delete`}
+                onClick={deleteClickHandler}
                 className="bg-red-700 text-white font-semibold py-2 px-4 rounded hover:bg-red-900"
               >
                 Delete Recipe
-              </Link>
+              </button>
             </div>
           )}
 
