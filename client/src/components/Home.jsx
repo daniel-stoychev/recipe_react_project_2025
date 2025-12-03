@@ -36,7 +36,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm mb-4">{recipe.category}</p>
                 <div className="flex justify-between items-center">
                   <Link
-                    to={`/recipe/details/${recipe.id}`}
+                    to={`/recipe/details/${recipe._id}`}
                     className="text-amber-900 font-semibold hover:underline"
                   >
                     Details

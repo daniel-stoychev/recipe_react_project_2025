@@ -1,5 +1,34 @@
+import { useContext, useEffect } from "react";
 import hatImage from "../../assets/images/hat.png";
+import UserContext from "../../contexts/UserContext.js";
+import { useNavigate } from "react-router";
 export default function CreateRecipe() {
+  const navigate = useNavigate();
+  const { user } = useContext(UserContext);
+  const createRecipeHandler = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    data._createdOn = Date.now();
+    data._ownerId = user._id;
+
+    // console.log(data);
+
+    fetch("http://localhost:3030/jsonstore/recipes", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((err) => alert(err.message));
+
+    navigate("/");
+  };
+
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -14,7 +43,7 @@ export default function CreateRecipe() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={createRecipeHandler}>
           {/* <form className="space-y-6" onSubmit={""}> */}
           <div>
             <label
@@ -114,12 +143,19 @@ export default function CreateRecipe() {
           </div>
 
           <div>
-            <button
+            <input
+              className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
               type="submit"
+              value="Add Recipe"
+            />
+            {/* <button
+              onSubmit={createRecipeHandler}
+              type="submit"
+              
               className="flex w-full justify-center rounded-md bg-amber-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-xs hover:bg-amber-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Add Recipe
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

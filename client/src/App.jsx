@@ -46,7 +46,7 @@ function App() {
         <Route path="/admin">
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-          {/* <Suspense fallback={<div>Loading...</div>}> */}
+
           <Route
             path="profile"
             element={<ProtectedRoute element={UserProfile} />}
@@ -55,7 +55,7 @@ function App() {
             path="recipe/create"
             element={<ProtectedRoute element={CreateRecipe} />}
           />
-          {/* </Suspense> */}
+          {/* <Route path="recipe/create" element={<CreateRecipe />} /> */}
         </Route>
       </Routes>
     </UserContext.Provider>
