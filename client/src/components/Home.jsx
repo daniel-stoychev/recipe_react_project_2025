@@ -13,6 +13,8 @@ export default function Home() {
       .catch((err) => alert(err.message));
   }, []);
 
+  console.log(recipes);
+
   return (
     <>
       <h1 className="text-3xl text-center font-bold mt-10">All Recipes</h1>

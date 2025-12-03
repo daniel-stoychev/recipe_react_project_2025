@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import UserContext from "../contexts/UserContext.js";
-import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router";
 
 export default function ProtectedRoute({ element: Component }) {
   const { isAuthenticated } = useContext(UserContext);

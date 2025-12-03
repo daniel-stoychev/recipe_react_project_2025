@@ -1,7 +1,7 @@
 import { FaUser } from "react-icons/fa";
 
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import UserContext from "../../contexts/UserContext.js";
 
 export default function RecipeDetails() {
@@ -79,12 +79,18 @@ export default function RecipeDetails() {
           {/* Edit and Delete Buttons */}
           {isOwner && (
             <div className="flex space-x-4 mb-6 mt-5">
-              <button className="bg-amber-600 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700">
+              <Link
+                to={`/recipe/${recipe._id}/edit`}
+                className="bg-amber-600 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700"
+              >
                 Edit Recipe
-              </button>
-              <button className="bg-red-700 text-white font-semibold py-2 px-4 rounded hover:bg-red-900">
+              </Link>
+              <Link
+                to={`/recipe/${recipe._id}/delete`}
+                className="bg-red-700 text-white font-semibold py-2 px-4 rounded hover:bg-red-900"
+              >
                 Delete Recipe
-              </button>
+              </Link>
             </div>
           )}
 

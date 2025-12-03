@@ -196,7 +196,7 @@ export default function Header() {
               {user.email}
             </p>
             <NavLink
-              to="/admin/recipe/create"
+              to="/recipe/create"
               className={({ isActive }) =>
                 `text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2 ${
                   isActive ? "border-b-1" : ""

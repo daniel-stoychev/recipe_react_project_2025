@@ -12,7 +12,7 @@ import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
 
 function App() {
-  //Creqte context
+  //Create context
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const loginHandler = (user) => {
@@ -47,18 +47,21 @@ function App() {
         <Route path="/admin">
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
-
           <Route
             path="profile"
             element={<ProtectedRoute element={UserProfile} />}
           />
+        </Route>
+
+        <Route path="/recipe">
           <Route
-            path="recipe/create"
+            path="create"
             element={<ProtectedRoute element={CreateRecipe} />}
           />
-          {/* <Route path="recipe/create" element={<CreateRecipe />} /> */}
+          <Route path=":recipeId/details" element={<RecipeDetails />} />
+          {/* <Route path=":recipeId/delete" element={<RecipeDetails />} />
+          <Route path=":recipeId/edit" element={<RecipeDetails />} /> */}
         </Route>
-        <Route path="/recipe/:recipeId/details" element={<RecipeDetails />} />
       </Routes>
     </UserContext.Provider>
   );
