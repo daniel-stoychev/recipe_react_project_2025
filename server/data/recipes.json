@@ -1,114 +1,42 @@
-[
-  {
+{
+  "a1b2c3d4e5f6g7h8i9j0": {
     "_id": "a1b2c3d4e5f6g7h8i9j0",
     "title": "Spaghetti Carbonara",
     "imageUrl": "https://www.marthastewart.com/thmb/S9xVtnWSHldvxPHKOxEq0bALG-k=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/MSL-338686-spaghetti-carbonara-hero-3x2-69999-560b45d1dd9f4741b717176eff024839.jpeg",
-    "ingredients": [
-      "200g spaghetti",
-      "100g pancetta",
-      "2 large eggs",
-      "50g pecorino cheese",
-      "50g parmesan cheese",
-      "Black pepper",
-      "Salt"
-    ],
-    "preparationSteps": [
-      "Cook the spaghetti in a large pot of boiling salted water until al dente.",
-      "Fry the pancetta with black pepper until crispy.",
-      "Beat the eggs in a bowl and mix with grated pecorino and parmesan cheese.",
-      "Drain the spaghetti and mix quickly with the egg and cheese mixture.",
-      "Add the pancetta and mix well. Serve immediately."
-    ],
+    "ingredients": "200g spaghetti, 100g pancetta, 2 large eggs, 50g pecorino cheese, 50g parmesan cheese, Black pepper, Salt",
+    "preparation": "Cook the spaghetti in a large pot of boiling salted water until al dente. Fry the pancetta with black pepper until crispy. Beat the eggs in a bowl and mix with grated pecorino and parmesan cheese. Drain the spaghetti and mix quickly with the egg and cheese mixture. Add the pancetta and mix well. Serve immediately.",
     "category": "meat recipes"
   },
-  {
+  "j0i9h8g7f6e5d4c3b2a1": {
     "_id": "j0i9h8g7f6e5d4c3b2a1",
     "title": "Vegetable Stir Fry",
     "imageUrl": "https://s.lightorangebean.com/media/20240914144639/Thai-Vegetable-Stir-Fry-with-Lime-and-Ginger_done.png",
-    "ingredients": [
-      "1 broccoli head",
-      "1 red bell pepper",
-      "1 yellow bell pepper",
-      "100g sugar snap peas",
-      "2 tablespoons soy sauce",
-      "1 tablespoon olive oil",
-      "1 garlic clove"
-    ],
-    "preparationSteps": [
-      "Chop the vegetables into bite-sized pieces.",
-      "Heat olive oil in a pan and add minced garlic.",
-      "Add vegetables to the pan and stir fry for 5-7 minutes.",
-      "Add soy sauce and stir well.",
-      "Serve hot with rice or noodles."
-    ],
+    "ingredients": "1 broccoli head, 1 red bell pepper, 1 yellow bell pepper, 100g sugar snap peas, 2 tablespoons soy sauce, 1 tablespoon olive oil, 1 garlic clove",
+    "preparation": "Chop the vegetables into bite-sized pieces. Heat olive oil in a pan and add minced garlic. Add vegetables to the pan and stir fry for 5-7 minutes. Add soy sauce and stir well. Serve hot with rice or noodles.",
     "category": "vegetarian"
   },
-  {
+  "z9y8x7w6v5u4t3s2r1q0": {
     "_id": "z9y8x7w6v5u4t3s2r1q0",
     "title": "Classic Brownies",
     "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK4Ksi_Et2lqTchyC1eXTu1joZJmjT7pkwlQ&s",
-    "ingredients": [
-      "200g dark chocolate",
-      "150g butter",
-      "250g sugar",
-      "3 large eggs",
-      "100g plain flour",
-      "30g cocoa powder",
-      "1 teaspoon vanilla extract"
-    ],
-    "preparationSteps": [
-      "Preheat the oven to 180°C (350°F).",
-      "Melt the chocolate and butter together.",
-      "Whisk the eggs and sugar until light and fluffy.",
-      "Combine the chocolate mixture with the egg mixture.",
-      "Fold in the flour, cocoa powder, and vanilla extract.",
-      "Pour into a baking tray and bake for 25-30 minutes.",
-      "Let cool before cutting into squares."
-    ],
+    "ingredients": "200g dark chocolate, 150g butter, 250g sugar, 3 large eggs, 100g plain flour, 30g cocoa powder, 1 teaspoon vanilla extract",
+    "preparation": "Preheat the oven to 180°C (350°F). Melt the chocolate and butter together. Whisk the eggs and sugar until light and fluffy. Combine the chocolate mixture with the egg mixture. Fold in the flour, cocoa powder, and vanilla extract. Pour into a baking tray and bake for 25-30 minutes. Let cool before cutting into squares.",
     "category": "desserts"
   },
-  {
+  "q0r1s2t3u4v5w6x7y8z9": {
     "_id": "q0r1s2t3u4v5w6x7y8z9",
     "title": "Chicken Curry",
     "imageUrl": "https://www.allrecipes.com/thmb/FL-xnyAllLyHcKdkjUZkotVlHR8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/46822-indian-chicken-curry-ii-DDMFS-4x3-39160aaa95674ee395b9d4609e3b0988.jpg",
-    "ingredients": [
-      "500g chicken breast",
-      "2 onions",
-      "3 garlic cloves",
-      "1 tablespoon curry powder",
-      "400ml coconut milk",
-      "2 tablespoons vegetable oil",
-      "Salt and pepper"
-    ],
-    "preparationSteps": [
-      "Cut the chicken into pieces and season with salt and pepper.",
-      "Heat oil in a pan and sauté chopped onions and garlic.",
-      "Add the chicken and curry powder, cook until chicken is browned.",
-      "Pour in coconut milk and simmer for 20 minutes.",
-      "Serve hot with rice."
-    ],
+    "ingredients": "500g chicken breast, 2 onions, 3 garlic cloves, 1 tablespoon curry powder, 400ml coconut milk, 2 tablespoons vegetable oil, Salt and pepper",
+    "preparation": "Cut the chicken into pieces and season with salt and pepper. Heat oil in a pan and sauté chopped onions and garlic. Add the chicken and curry powder, cook until chicken is browned. Pour in coconut milk and simmer for 20 minutes. Serve hot with rice.",
     "category": "meat recipes"
   },
-  {
+  "m9n8b7v6c5x4z3a2s1d0": {
     "_id": "m9n8b7v6c5x4z3a2s1d0",
     "title": "Lemon Drizzle Cake",
     "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9xm_AHRSCgPrzEtnQb6gj8PjxVsdCq_RHqQ&s",
-    "ingredients": [
-      "225g unsalted butter",
-      "225g caster sugar",
-      "4 eggs",
-      "225g self-raising flour",
-      "1 lemon (zested and juiced)",
-      "85g icing sugar"
-    ],
-    "preparationSteps": [
-      "Preheat the oven to 180°C (350°F).",
-      "Cream together butter and sugar until light and fluffy.",
-      "Add eggs one at a time, mixing well.",
-      "Fold in flour and lemon zest.",
-      "Pour the mixture into a greased loaf tin and bake for 45-50 minutes.",
-      "Mix lemon juice with icing sugar and drizzle over the cake while still warm."
-    ],
+    "ingredients": "225g unsalted butter, 225g caster sugar, 4 eggs, 225g self-raising flour, 1 lemon (zested and juiced), 85g icing sugar",
+    "preparation": "Preheat the oven to 180°C (350°F). Cream together butter and sugar until light and fluffy. Add eggs one at a time, mixing well. Fold in flour and lemon zest. Pour the mixture into a greased loaf tin and bake for 45-50 minutes. Mix lemon juice with icing sugar and drizzle over the cake while still warm.",
     "category": "desserts"
   }
-]
+}

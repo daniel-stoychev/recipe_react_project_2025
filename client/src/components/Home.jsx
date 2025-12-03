@@ -21,7 +21,7 @@ export default function Home() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 px-6 w-4/5 mr-auto ml-auto">
           {recipes.map((recipe) => (
             <div
-              key={recipe.id}
+              key={recipe._id}
               className="bg-white rounded-lg shadow-lg overflow-hidden"
             >
               <img
@@ -36,7 +36,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm mb-4">{recipe.category}</p>
                 <div className="flex justify-between items-center">
                   <Link
-                    to={`/recipe/details/${recipe._id}`}
+                    to={`/recipe/${recipe._id}/details`}
                     className="text-amber-900 font-semibold hover:underline"
                   >
                     Details

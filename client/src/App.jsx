@@ -9,6 +9,7 @@ import UserContext from "./contexts/UserContext.js";
 import { lazy, Suspense, useState } from "react";
 import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
 
 function App() {
   //Creqte context
@@ -57,6 +58,7 @@ function App() {
           />
           {/* <Route path="recipe/create" element={<CreateRecipe />} /> */}
         </Route>
+        <Route path="/recipe/:recipeId/details" element={<RecipeDetails />} />
       </Routes>
     </UserContext.Provider>
   );

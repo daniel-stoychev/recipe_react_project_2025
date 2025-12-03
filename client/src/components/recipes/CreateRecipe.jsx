@@ -104,17 +104,17 @@ export default function CreateRecipe() {
 
           <div>
             <label
-              htmlFor="steps"
+              htmlFor="preparation"
               className="block text-sm/6 font-medium text-gray-900"
             >
               Preparation Steps
             </label>
             <div className="mt-2">
               <textarea
-                id="steps"
-                name="steps"
+                id="preparation"
+                name="preparation"
                 required
-                placeholder="Describe the preparation steps"
+                placeholder="Describe steps separated by commas"
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 h-32 resize-none"
               />
             </div>

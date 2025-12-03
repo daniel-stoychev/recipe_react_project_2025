@@ -1,0 +1,88 @@
+import { FaUser } from "react-icons/fa";
+
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
+
+export default function RecipeDetails() {
+  const { recipeId } = useParams();
+  //   console.log(recipeId);
+
+  const [recipe, setRecipe] = useState({});
+  useEffect(() => {
+    fetch(`http://localhost:3030/jsonstore/recipes/${recipeId}`)
+      .then((response) => response.json())
+      .then((result) => {
+        console.log(result);
+        setRecipe(result);
+      })
+      .catch((err) => alert(err.message));
+  }, [recipeId]);
+
+  //   return <h1>{recipe.title}</h1>;
+
+  return (
+    <div className="max-w-6xl mx-auto mt-10 p-6">
+      <div className="flex flex-col lg:flex-row bg-white shadow-lg rounded-lg overflow-hidden">
+        {/* Image Section */}
+        <div className="lg:w-1/2">
+          <img
+            src={recipe.imageUrl}
+            alt={recipe.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Details Section */}
+        <div className="lg:w-1/2 bg-gray-50 p-6">
+          <h2 className="text-2xl font-bold text-gray-800">{recipe.title}</h2>
+          <div className="flex items-center mt-4 mb-2">
+            <FaUser className="text-gray-600 mr-2" />
+            <span className="text-gray-700 font-medium">{recipe._ownerId}</span>
+          </div>
+          <div className="border-b-2 border-amber-700 mb-4"></div>
+
+          {/* Ingredients */}
+          <h3 className="text-lg font-semibold text-gray-800 mb-5">
+            Ingredients
+          </h3>
+          {recipe.ingredients && (
+            <ul className="list-disc list-inside text-gray-700 mb-4">
+              {recipe.ingredients.split(",").map((ingredient, index) => (
+                <li key={index}>{ingredient.trim()}</li>
+              ))}
+            </ul>
+          )}
+          {/* <p>{console.log(recipe.ingredients)}</p> */}
+
+          {/* Preparation Steps */}
+          <h3 className="text-lg font-semibold text-gray-800 mb-5">
+            Preparation
+          </h3>
+          {recipe.preparation && (
+            // <ul className="list-disc list-inside text-gray-700 mb-4">
+            //   {recipe.preparation.split(",").map((step, index) => (
+            //     <li key={index}>{step.trim()}</li>
+            //   ))}
+            // </ul>
+            <p>{recipe.preparation}</p>
+          )}
+
+          {/* Edit and Delete Buttons */}
+          <div className="flex space-x-4 mb-6 mt-5">
+            <button className="bg-amber-900 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700">
+              Edit Recipe
+            </button>
+            <button className="bg-red-600 text-white font-semibold py-2 px-4 rounded hover:bg-red-500">
+              Delete Recipe
+            </button>
+          </div>
+
+          {/* Likes */}
+          <div className="text-gray-800 font-semibold">
+            Likes: {recipe.likes}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
