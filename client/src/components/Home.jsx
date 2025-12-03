@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <>
       <h1 className="text-3xl text-center font-bold mt-10">All Recipes</h1>
-      <div className="border-t-4 border-amber-900 mt-4"></div>
+      <div className="border-t-4 border-amber-700 mt-4"></div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 px-6 w-4/5 mr-auto ml-auto">
         {recipes.map((recipe) => (
           <div
