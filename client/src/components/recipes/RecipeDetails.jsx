@@ -1,4 +1,4 @@
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaThumbsUp } from "react-icons/fa";
 
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
@@ -111,11 +111,15 @@ export default function RecipeDetails() {
               >
                 Delete Recipe
               </button>
+              <button className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center">
+                <FaThumbsUp className="mr-2" />
+                Like
+              </button>
             </div>
           )}
 
           {/* Likes */}
-          <div className="text-gray-800 font-semibold">
+          <div className="text-base font-semibold text-gray-800">
             Likes: {recipe.likes}
           </div>
         </div>

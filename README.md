@@ -79,3 +79,13 @@ npm run dev
 
 - Server available at: `https://github.com/softuni-practice-server/softuni-practice-server`
 - Navigate to server folder & run: `node server.js`
+
+#### Likes
+
+- [x] Add Likes bitton on details
+- [] Create Likes Handler, PATCH request
+  - [] with likes to recipe endpoint
+  - [] with userId to recipe endpint
+- [] replace Like button with You already liked
+- [] create recipe context
+- [] reflect changes on Home
