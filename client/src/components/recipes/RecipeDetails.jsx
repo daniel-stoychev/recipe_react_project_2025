@@ -122,7 +122,7 @@ export default function RecipeDetails() {
           {isOwner && (
             <div className="flex space-x-4 mb-6 mt-5">
               <Link
-                // to={`/recipe/${recipe._id}/edit`}
+                to={`/recipe/${recipe._id}/edit`}
                 className="bg-amber-600 text-white font-semibold py-2 px-4 rounded hover:bg-amber-700"
               >
                 Edit Recipe

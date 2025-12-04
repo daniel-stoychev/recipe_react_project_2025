@@ -11,6 +11,7 @@ import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
 import { RecipeProvider } from "./contexts/RecipeContext.jsx";
+import EditRecipe from "./components/recipes/EditRecipe.jsx";
 
 function App() {
   //User Create context
@@ -60,9 +61,11 @@ function App() {
               path="create"
               element={<ProtectedRoute element={CreateRecipe} />}
             />
+            <Route
+              path=":recipeId/edit"
+              element={<ProtectedRoute element={EditRecipe} />}
+            />
             <Route path=":recipeId/details" element={<RecipeDetails />} />
-            {/* <Route path=":recipeId/delete" element={<RecipeDetails />} />
-          <Route path=":recipeId/edit" element={<RecipeDetails />} /> */}
           </Route>
         </Routes>
       </RecipeProvider>
