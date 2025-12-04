@@ -26,7 +26,7 @@ export const RecipeProvider = ({ children }) => {
     }
   };
 
-  const likeRecipe = (id, userId) => {
+  const likeRecipe = async (id, userId) => {
     const recipe = recipes.find((recipe) => recipe._id === id);
 
     if (!recipe) {
@@ -41,7 +41,7 @@ export const RecipeProvider = ({ children }) => {
     };
 
     try {
-      fetch(`http://localhost:3030/jsonstore/recipes/${recipe._id}`, {
+      await fetch(`http://localhost:3030/jsonstore/recipes/${recipe._id}`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",

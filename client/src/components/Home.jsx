@@ -1,21 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router";
+import RecipesContext from "../contexts/RecipeContext.jsx";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
-
+  const { loadRecipes } = useContext(RecipesContext);
   useEffect(() => {
     fetch("http://localhost:3030/jsonstore/recipes")
       .then((response) => response.json())
       .then((result) => {
-        // console.log(Object.values(result));
         const recipiesObj = Object.values(result);
         setRecipes(recipiesObj);
       })
       .catch((err) => alert(err.message));
   }, []);
-
-  // console.log(recipes);
 
   return (
     <>

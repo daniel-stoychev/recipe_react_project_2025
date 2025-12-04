@@ -86,6 +86,6 @@ npm run dev
 - [] Create Likes Handler, PATCH request
   - [x] with likes to recipe endpoint
   - [x] with userId to recipe endpint
-- [] replace Like button with You already liked
+- [x] replace Like button with You already liked
 - [x] create recipe context
 - [] reflect changes on Home

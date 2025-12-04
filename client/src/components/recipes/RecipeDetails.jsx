@@ -21,8 +21,8 @@ export default function RecipeDetails() {
       .catch((err) => alert(err.message));
   }, [recipeId]);
 
-  console.log(user);
-  console.log(recipe);
+  //   console.log(user);
+  //   console.log(recipe);
 
   if (user._id === recipe._ownerId) {
     isOwner = true;
@@ -48,11 +48,14 @@ export default function RecipeDetails() {
 
   // Like Handler
   const { likeRecipe } = useContext(RecipesContext);
+  const likeClickHandler = async () => {
+    if (!recipe || !user._id) return;
+    await likeRecipe(recipeId, user._id);
+    const updated = await fetch(
+      `http://localhost:3030/jsonstore/recipes/${recipeId}`
+    ).then((res) => res.json());
 
-  const likeClickHandler = () => {
-    if (recipe && user._id) {
-      likeRecipe(recipeId, user._id);
-    }
+    setRecipe(updated);
   };
 
   // HasLiked

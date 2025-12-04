@@ -2,9 +2,12 @@ import { useContext, useEffect } from "react";
 import hatImage from "../../assets/images/hat.png";
 import UserContext from "../../contexts/UserContext.js";
 import { useNavigate } from "react-router";
+import RecipesContext from "../../contexts/RecipeContext.jsx";
 export default function CreateRecipe() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
+  const { loadRecipes } = useContext(RecipesContext);
+
   const createRecipeHandler = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -15,7 +18,6 @@ export default function CreateRecipe() {
     data._ownerName = user.username;
 
     // console.log(data);
-
     fetch("http://localhost:3030/jsonstore/recipes", {
       method: "POST",
       headers: {
@@ -26,7 +28,7 @@ export default function CreateRecipe() {
       .then((response) => response.json())
       .then((result) => console.log(result))
       .catch((err) => alert(err.message));
-
+    loadRecipes();
     navigate("/");
   };
 
