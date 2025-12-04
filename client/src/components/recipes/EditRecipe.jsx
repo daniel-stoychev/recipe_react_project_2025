@@ -1,16 +1,36 @@
 import hatImage from "../../assets/images/hat.png";
 import { useContext, useState } from "react";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 export default function EditRecipe() {
-  const { recipes } = useContext(RecipesContext);
+  const navigate = useNavigate();
+  const { recipes, loadRecipes } = useContext(RecipesContext);
   const params = useParams();
   const recipeId = params.recipeId;
   const curRecipe = recipes.find((recipe) => recipe._id === recipeId);
-  console.log(curRecipe);
 
-  console.log(recipes);
+  const updateRecipeHandler = async (e) => {
+    e.preventDefault();
+
+    console.log("EDIT TEST");
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    console.log(data);
+
+    await fetch(`http://localhost:3030/jsonstore/recipes/${recipeId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((result) => console.log(result))
+      .catch((err) => alert(err.message));
+    loadRecipes();
+    navigate(`/recipe/${recipeId}/details`);
+  };
 
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
@@ -26,8 +46,7 @@ export default function EditRecipe() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6">
-          {/* <form className="space-y-6" onSubmit={updateRecipeHandler}> */}
+        <form className="space-y-6" onSubmit={updateRecipeHandler}>
           <div>
             <label
               htmlFor="title"
