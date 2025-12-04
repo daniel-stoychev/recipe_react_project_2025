@@ -44,9 +44,15 @@ export default function Home() {
                     Details
                   </Link>
                   <div className="flex items-center">
-                    <button className="text-amber-900 font-semibold hover:text-amber-700">
-                      👍 0
-                    </button>
+                    {recipe.likes > 0 ? (
+                      <button disabled className="text-amber-900 font-semibold">
+                        👍 {recipe.likes}
+                      </button>
+                    ) : (
+                      <button disabled className="text-amber-900 font-semibold">
+                        👍 0
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>
