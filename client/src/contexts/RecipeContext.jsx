@@ -4,6 +4,7 @@ export const RecipesContext = createContext({
   recipes: [],
   loadRecipes: () => {},
   likeRecipe: () => {},
+  // hasLiked: () => {},
 });
 
 export const RecipeProvider = ({ children }) => {
@@ -56,10 +57,15 @@ export const RecipeProvider = ({ children }) => {
     }
   };
 
+  // const hasLiked = (id, userId) => {
+
+  // }
+
   const value = {
     recipes,
     loadRecipes,
     likeRecipe,
+    // hasLiked
   };
 
   return (

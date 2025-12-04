@@ -1,4 +1,4 @@
-import { FaUser, FaThumbsUp } from "react-icons/fa";
+import { FaUser, FaThumbsUp, FaCheck } from "react-icons/fa";
 
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
@@ -46,6 +46,7 @@ export default function RecipeDetails() {
     }
   };
 
+  // Like Handler
   const { likeRecipe } = useContext(RecipesContext);
 
   const likeClickHandler = () => {
@@ -53,6 +54,17 @@ export default function RecipeDetails() {
       likeRecipe(recipeId, user._id);
     }
   };
+
+  // HasLiked
+  let hasLiked = false;
+  const likedUserArr = recipe.likedUsers;
+  const currentUser = user._id;
+  if (currentUser && likedUserArr) {
+    const userExists = likedUserArr.find((user) => user === currentUser);
+    if (likedUserArr || currentUser === userExists) {
+      hasLiked = true;
+    }
+  }
 
   return (
     <div className="max-w-6xl mx-auto mt-10 p-6">
@@ -119,13 +131,28 @@ export default function RecipeDetails() {
               >
                 Delete Recipe
               </button>
-              <button
+
+              {/* <button
                 className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center"
                 onClick={likeClickHandler}
               >
                 <FaThumbsUp className="mr-2" />
                 Like
-              </button>
+              </button> */}
+              {!hasLiked ? (
+                <button
+                  className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center"
+                  onClick={likeClickHandler}
+                >
+                  <FaThumbsUp className="mr-2" />
+                  Like
+                </button>
+              ) : (
+                <div className="flex items-center justify-center bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded cursor-default select-none">
+                  <FaCheck className="mr-2" />
+                  Liked!
+                </div>
+              )}
             </div>
           )}
 
