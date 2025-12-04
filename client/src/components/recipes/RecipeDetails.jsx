@@ -6,7 +6,7 @@ import UserContext from "../../contexts/UserContext.js";
 import { RecipesContext } from "../../contexts/RecipeContext.jsx";
 
 export default function RecipeDetails() {
-  const { user } = useContext(UserContext);
+  const { user, isAuthenticated } = useContext(UserContext);
   const { recipeId } = useParams();
   const navigate = useNavigate();
   let isOwner = false;
@@ -134,14 +134,10 @@ export default function RecipeDetails() {
               >
                 Delete Recipe
               </button>
-
-              {/* <button
-                className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center"
-                onClick={likeClickHandler}
-              >
-                <FaThumbsUp className="mr-2" />
-                Like
-              </button> */}
+            </div>
+          )}
+          {isAuthenticated && !isOwner ? (
+            <div>
               {!hasLiked ? (
                 <button
                   className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center"
@@ -157,6 +153,8 @@ export default function RecipeDetails() {
                 </div>
               )}
             </div>
+          ) : (
+            <div></div>
           )}
 
           {/* Likes */}
