@@ -140,14 +140,14 @@ export default function RecipeDetails() {
             <div>
               {!hasLiked ? (
                 <button
-                  className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center"
+                  className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center mt-5"
                   onClick={likeClickHandler}
                 >
                   <FaThumbsUp className="mr-2" />
                   Like
                 </button>
               ) : (
-                <div className="flex items-center justify-center bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded cursor-default select-none">
+                <div className="flex items-center justify-center bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded cursor-default select-none mb-6 mt-5">
                   <FaCheck className="mr-2" />
                   Liked!
                 </div>
@@ -158,9 +158,11 @@ export default function RecipeDetails() {
           )}
 
           {/* Likes */}
-          <div className="text-base font-semibold text-gray-800">
-            Likes: {recipe.likes}
-          </div>
+          {recipe.likes && (
+            <div className="text-base font-semibold text-gray-800 mb-6 mt-5">
+              Likes: {recipe.likes}
+            </div>
+          )}
         </div>
       </div>
     </div>
