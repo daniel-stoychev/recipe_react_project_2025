@@ -15,7 +15,7 @@ export default function Home() {
       .catch((err) => alert(err.message));
   }, []);
 
-  console.log(recipes);
+  // console.log(recipes);
 
   return (
     <>

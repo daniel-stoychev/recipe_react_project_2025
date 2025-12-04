@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router";
 import hatImage from "../../assets/images/hat.png";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../../contexts/UserContext.js";
 
 export default function Login() {

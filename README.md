@@ -84,8 +84,8 @@ npm run dev
 
 - [x] Add Likes bitton on details
 - [] Create Likes Handler, PATCH request
-  - [] with likes to recipe endpoint
-  - [] with userId to recipe endpint
+  - [x] with likes to recipe endpoint
+  - [x] with userId to recipe endpint
 - [] replace Like button with You already liked
-- [] create recipe context
+- [x] create recipe context
 - [] reflect changes on Home

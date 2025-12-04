@@ -10,9 +10,10 @@ import { lazy, Suspense, useState } from "react";
 import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
+import { RecipeProvider } from "./contexts/RecipeContext.jsx";
 
 function App() {
-  //Create context
+  //User Create context
   const navigate = useNavigate();
   const [user, setUser] = useState({});
   const loginHandler = (user) => {
@@ -24,7 +25,7 @@ function App() {
   const logoutHandler = () => {
     setUser({}), navigate("/");
   };
-  const contextValue = {
+  const userContextValue = {
     user,
     isAuthenticated: !!user.email,
     onLogin: loginHandler,
@@ -39,30 +40,32 @@ function App() {
   // );
 
   return (
-    <UserContext.Provider value={contextValue}>
-      <Header />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/catalog" element={<Catalog />} />
-        <Route path="/admin">
-          <Route path="register" element={<Register />} />
-          <Route path="login" element={<Login />} />
-          <Route
-            path="profile"
-            element={<ProtectedRoute element={UserProfile} />}
-          />
-        </Route>
+    <UserContext.Provider value={userContextValue}>
+      <RecipeProvider>
+        <Header />
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/catalog" element={<Catalog />} />
+          <Route path="/admin">
+            <Route path="register" element={<Register />} />
+            <Route path="login" element={<Login />} />
+            <Route
+              path="profile"
+              element={<ProtectedRoute element={UserProfile} />}
+            />
+          </Route>
 
-        <Route path="/recipe">
-          <Route
-            path="create"
-            element={<ProtectedRoute element={CreateRecipe} />}
-          />
-          <Route path=":recipeId/details" element={<RecipeDetails />} />
-          {/* <Route path=":recipeId/delete" element={<RecipeDetails />} />
+          <Route path="/recipe">
+            <Route
+              path="create"
+              element={<ProtectedRoute element={CreateRecipe} />}
+            />
+            <Route path=":recipeId/details" element={<RecipeDetails />} />
+            {/* <Route path=":recipeId/delete" element={<RecipeDetails />} />
           <Route path=":recipeId/edit" element={<RecipeDetails />} /> */}
-        </Route>
-      </Routes>
+          </Route>
+        </Routes>
+      </RecipeProvider>
     </UserContext.Provider>
   );
 }

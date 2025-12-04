@@ -3,6 +3,7 @@ import { FaUser, FaThumbsUp } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import UserContext from "../../contexts/UserContext.js";
+import { RecipesContext } from "../../contexts/RecipeContext.jsx";
 
 export default function RecipeDetails() {
   const { user } = useContext(UserContext);
@@ -20,7 +21,6 @@ export default function RecipeDetails() {
       .catch((err) => alert(err.message));
   }, [recipeId]);
 
-  //   return <h1>{recipe.title}</h1>;
   console.log(user);
   console.log(recipe);
 
@@ -43,6 +43,14 @@ export default function RecipeDetails() {
       navigate("/");
     } catch (err) {
       alert("Unable to delete game: ", err.message);
+    }
+  };
+
+  const { likeRecipe } = useContext(RecipesContext);
+
+  const likeClickHandler = () => {
+    if (recipe && user._id) {
+      likeRecipe(recipeId, user._id);
     }
   };
 
@@ -111,7 +119,10 @@ export default function RecipeDetails() {
               >
                 Delete Recipe
               </button>
-              <button className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center">
+              <button
+                className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center"
+                onClick={likeClickHandler}
+              >
                 <FaThumbsUp className="mr-2" />
                 Like
               </button>
