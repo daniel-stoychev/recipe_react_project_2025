@@ -1,9 +1,15 @@
 import hatImage from "../../assets/images/hat.png";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
+import { useParams } from "react-router";
 
 export default function EditRecipe() {
-  const { recipes } = useState(RecipesContext);
+  const { recipes } = useContext(RecipesContext);
+  const params = useParams();
+  const recipeId = params.recipeId;
+  const curRecipe = recipes.find((recipe) => recipe._id === recipeId);
+  console.log(curRecipe);
+
   console.log(recipes);
 
   return (
@@ -35,7 +41,7 @@ export default function EditRecipe() {
                 name="title"
                 type="text"
                 required
-                // defaultValue={recipe.title}
+                defaultValue={curRecipe.title}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
             </div>
@@ -54,7 +60,7 @@ export default function EditRecipe() {
                 name="imageUrl"
                 type="text"
                 required
-                // defaultValue={recipe.imageUrl}
+                defaultValue={curRecipe.imageUrl}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
             </div>
@@ -73,7 +79,7 @@ export default function EditRecipe() {
                 name="ingredients"
                 type="text"
                 required
-                // defaultValue={recipe.ingredients.join(', ')}
+                defaultValue={curRecipe.ingredients}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               />
             </div>
@@ -91,7 +97,7 @@ export default function EditRecipe() {
                 id="preparation"
                 name="preparation"
                 required
-                // defaultValue={recipe.preparation.join(', ')}
+                defaultValue={curRecipe.preparation}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6 h-32 resize-none"
               />
             </div>
@@ -109,7 +115,7 @@ export default function EditRecipe() {
                 id="category"
                 name="category"
                 required
-                // defaultValue={recipe.category}
+                defaultValue={curRecipe.category}
                 className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
               >
                 <option value="">Select a category</option>
