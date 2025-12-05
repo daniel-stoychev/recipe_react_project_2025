@@ -28,25 +28,25 @@ import {
 } from "@heroicons/react/20/solid";
 import { Link, NavLink } from "react-router";
 
-const products = [
+const filters = [
   {
     name: "Meat Recipes",
     description:
       "For those who believe vegetables are just a sidekick to the real star of the plate!",
-    href: "#",
+    href: "/recipe/meat",
     icon: ChevronDoubleRightIcon,
   },
   {
     name: "Vegetarian",
     description:
       "Because sometimes, even the broccoli wants to be the main act!",
-    href: "#",
+    href: "/recipe/vegetarian",
     icon: ChevronDoubleRightIcon,
   },
   {
     name: "Desserts",
     description: "Where calories don't count and every bite is a sweet escape!",
-    href: "#",
+    href: "/recipe/desserts",
     icon: ChevronDoubleRightIcon,
   },
   {
@@ -123,7 +123,7 @@ export default function Header() {
               className="absolute left-1/2 z-10 mt-3 w-screen max-w-md -translate-x-1/2 overflow-hidden rounded-3xl bg-white shadow-lg outline-1 outline-gray-900/5 transition data-closed:translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in"
             >
               <div className="p-4">
-                {products.map((item) => (
+                {filters.map((item) => (
                   <div
                     key={item.name}
                     className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
@@ -136,7 +136,6 @@ export default function Header() {
                     </div>
                     <div className="flex-auto">
                       <a
-                        target="_blank"
                         href={item.href}
                         className="block font-semibold text-gray-900"
                       >
@@ -267,7 +266,7 @@ export default function Header() {
                     />
                   </DisclosureButton>
                   <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
+                    {[...filters, ...callsToAction].map((item) => (
                       <DisclosureButton
                         key={item.name}
                         as="a"

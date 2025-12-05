@@ -13,6 +13,7 @@ import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
 import { RecipeProvider } from "./contexts/RecipeContext.jsx";
 import EditRecipe from "./components/recipes/EditRecipe.jsx";
 import Footer from "./components/Footer.jsx";
+import FilterRecipe from "./components/recipes/FilterRecipe.jsx";
 
 function App() {
   //User Create context
@@ -67,6 +68,7 @@ function App() {
               element={<ProtectedRoute element={EditRecipe} />}
             />
             <Route path=":recipeId/details" element={<RecipeDetails />} />
+            <Route path=":category" element={<FilterRecipe />} />
           </Route>
         </Routes>
         <Footer />
