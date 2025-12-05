@@ -192,9 +192,6 @@ export default function Header() {
           </div>
         ) : (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <p className="text-base font-semibold text-gray-500 pl-2 pr-2">
-              {user.email}
-            </p>
             <NavLink
               to="/recipe/create"
               className={({ isActive }) =>

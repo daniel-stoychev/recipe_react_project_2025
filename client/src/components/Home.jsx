@@ -4,7 +4,7 @@ import RecipesContext from "../contexts/RecipeContext.jsx";
 
 export default function Home() {
   const [recipes, setRecipes] = useState([]);
-  const { loadRecipes } = useContext(RecipesContext);
+  // const { loadRecipes } = useContext(RecipesContext);
   useEffect(() => {
     fetch("http://localhost:3030/jsonstore/recipes")
       .then((response) => response.json())
