@@ -1,14 +1,20 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router";
 import RecipesContext from "../contexts/RecipeContext.jsx";
 
 export default function Home() {
-  const { recipes, loadRecipes } = useContext(RecipesContext);
-  loadRecipes();
+  let { recipes, loadRecipes } = useContext(RecipesContext);
+  useEffect(() => {
+    loadRecipes();
+  }, []);
+
+  recipes = recipes.slice(recipes.length - 6, recipes.length);
 
   return (
     <>
-      <h1 className="text-3xl text-center font-bold mt-10">All Recipes</h1>
+      <h1 className="text-3xl text-center font-bold mt-10">
+        Our newest recipes
+      </h1>
       <div className="border-t-4 border-amber-700 mt-4"></div>
       {recipes.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8 px-6 w-4/5 mr-auto ml-auto">
