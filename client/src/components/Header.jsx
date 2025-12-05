@@ -185,7 +185,7 @@ export default function Header() {
         {!isAuthenticated ? (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <NavLink
-              to="/Linkdmin/register"
+              to="/admin/register"
               className={({ isActive }) =>
                 `text-base font-semibold text-gray-900 mr-10 hover:border-b-1 pl-2 pr-2 ${
                   isActive ? "border-b-1" : ""
@@ -195,7 +195,7 @@ export default function Header() {
               Register <span aria-hidden="true"></span>
             </NavLink>
             <NavLink
-              to="/Linkdmin/login"
+              to="/admin/login"
               className={({ isActive }) =>
                 `text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2 ${
                   isActive ? "border-b-1" : ""
@@ -219,7 +219,7 @@ export default function Header() {
               Create Recipe <span aria-hidden="true"></span>
             </NavLink>
             <NavLink
-              to="/Linkdmin/profile"
+              to="/admin/profile"
               className={({ isActive }) =>
                 `text-base font-semibold text-gray-900 hover:border-b-1 pl-2 pr-2 ${
                   isActive ? "border-b-1" : ""
@@ -298,13 +298,13 @@ export default function Header() {
               </div>
               <div className="py-6">
                 <NavLink
-                  to="/Linkdmin/register"
+                  to="/admin/register"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Register
                 </NavLink>
                 <NavLink
-                  to="/Linkdmin/login"
+                  to="/admin/login"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                 >
                   Log in
