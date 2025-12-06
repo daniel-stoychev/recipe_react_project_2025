@@ -1,22 +1,31 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 
 export const RecipesContext = createContext({
   recipes: [],
   loadRecipes: () => {},
   likeRecipe: () => {},
-  // hasLiked: () => {},
 });
 
 export const RecipeProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
-
+  // const abortRef = useRef(null);
   useEffect(() => {
     loadRecipes();
+    // return () => {
+    //   if (abortRef.current) {
+    //     abortRef.current.abort();
+    //   }
+    // };
   }, []);
 
   const loadRecipes = async () => {
     try {
+      // if (abortRef.current) {
+      //   abortRef.current.abort();
+      // }
+
       const response = await fetch("http://localhost:3030/jsonstore/recipes");
+      // {signal: controller.signal}
       const result = await response.json();
       const recipesArray = Object.values(result);
 
@@ -57,15 +66,10 @@ export const RecipeProvider = ({ children }) => {
     }
   };
 
-  // const hasLiked = (id, userId) => {
-
-  // }
-
   const value = {
     recipes,
     loadRecipes,
     likeRecipe,
-    // hasLiked
   };
 
   return (
