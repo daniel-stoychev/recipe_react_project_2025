@@ -8,7 +8,6 @@ export default function UserProfile() {
   let { recipes } = useContext(RecipesContext);
   console.log(user);
   recipes = recipes.filter((recipe) => recipe._ownerId === user._id);
-  console.log(recipes);
 
   return (
     <>

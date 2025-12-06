@@ -9,6 +9,7 @@ export default function Home() {
   }, []);
 
   recipes = recipes.slice(recipes.length - 6, recipes.length);
+  console.log(recipes);
 
   return (
     <>

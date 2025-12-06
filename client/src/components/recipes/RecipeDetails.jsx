@@ -62,9 +62,12 @@ export default function RecipeDetails() {
   let hasLiked = false;
   const likedUserArr = recipe.likedUsers;
   const currentUser = user._id;
+
   if (currentUser && likedUserArr) {
     const userExists = likedUserArr.find((user) => user === currentUser);
-    if (likedUserArr || currentUser === userExists) {
+    console.log(userExists);
+
+    if (userExists !== undefined) {
       hasLiked = true;
     }
   }
@@ -138,7 +141,12 @@ export default function RecipeDetails() {
           )}
           {isAuthenticated && !isOwner ? (
             <div>
-              {!hasLiked ? (
+              {hasLiked ? (
+                <div className="flex items-center justify-center bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded cursor-default select-none mb-6 mt-5">
+                  <FaCheck className="mr-2" />
+                  Liked!
+                </div>
+              ) : (
                 <button
                   className="bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-500 flex items-center mt-5"
                   onClick={likeClickHandler}
@@ -146,11 +154,6 @@ export default function RecipeDetails() {
                   <FaThumbsUp className="mr-2" />
                   Like
                 </button>
-              ) : (
-                <div className="flex items-center justify-center bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded cursor-default select-none mb-6 mt-5">
-                  <FaCheck className="mr-2" />
-                  Liked!
-                </div>
               )}
             </div>
           ) : (
