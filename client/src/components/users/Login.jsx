@@ -1,38 +1,15 @@
 import { Link, useNavigate } from "react-router";
 import hatImage from "../../assets/images/hat.png";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import UserContext from "../../contexts/UserContext.js";
 
 export default function Login() {
-  const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
-
   const navigate = useNavigate();
   const { onLogin } = useContext(UserContext);
   const loginClickHandler = (event) => {
     event.preventDefault();
-
     const formData = new FormData(event.target);
     const { email, password } = Object.fromEntries(formData);
-    //Error handling
-    let valid = true;
-
-    if (!email.trim()) {
-      setEmailError("Email is required.");
-      valid = false;
-    } else {
-      setEmailError("");
-    }
-
-    if (!password.trim()) {
-      setPasswordError("Password is required.");
-      valid = false;
-    } else {
-      setPasswordError("");
-    }
-
-    if (!valid) return;
-    //=====
     fetch("http://localhost:3030/users/login", {
       method: "POST",
       headers: {
@@ -84,14 +61,10 @@ export default function Login() {
                   id="email"
                   name="email"
                   type="email"
+                  required
                   autoComplete="email"
-                  className={`block w-full rounded-md px-3 py-1.5 outline-1 ${
-                    emailError ? "outline-red-500" : "outline-gray-300"
-                  }`}
+                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
-                {emailError && (
-                  <p className="text-red-500 text-sm mt-1">{emailError}</p>
-                )}
               </div>
             </div>
 
@@ -109,13 +82,10 @@ export default function Login() {
                   id="password"
                   name="password"
                   type="password"
-                  className={`block w-full rounded-md px-3 py-1.5 outline-1 ${
-                    passwordError ? "outline-red-500" : "outline-gray-300"
-                  }`}
+                  required
+                  autoComplete="current-password"
+                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
-                {passwordError && (
-                  <p className="text-red-500 text-sm mt-1">{passwordError}</p>
-                )}
               </div>
             </div>
 
