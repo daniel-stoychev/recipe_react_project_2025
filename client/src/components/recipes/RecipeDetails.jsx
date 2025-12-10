@@ -42,7 +42,7 @@ export default function RecipeDetails() {
       });
       navigate("/");
     } catch (err) {
-      alert("Unable to delete game: ", err.message);
+      alert("Unable to delete recipe: ", err.message);
     }
   };
 

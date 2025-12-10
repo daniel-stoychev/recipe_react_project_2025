@@ -49,13 +49,13 @@ const filters = [
     to: "/recipe/desserts",
     icon: ChevronDoubleRightIcon,
   },
-  {
-    name: "Online Recipes Database",
-    description:
-      "If you do not find what you need here - Your digital sous-chef, ready to spice up your culinary adventures!",
-    to: "https://www.themealdb.com/",
-    icon: ChevronDoubleRightIcon,
-  },
+  // {
+  //   name: "Online Recipes Database",
+  //   description:
+  //     "If you do not find what you need here - Your digital sous-chef, ready to spice up your culinary adventures!",
+  //   to: "https://www.themealdb.com/",
+  //   icon: ChevronDoubleRightIcon,
+  // },
 ];
 const callsToAction = [
   { name: "Watch demo", to: "#", icon: PlayCircleIcon },
@@ -157,24 +157,6 @@ export default function Header() {
                           </p>
                         </div>
                       </div>
-                    ))}
-                  </div>
-
-                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
-                    {callsToAction.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.to}
-                        onClick={() => close()} // 👈 also closes on CTA links
-                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 
-                         font-semibold text-gray-900 hover:bg-gray-100"
-                      >
-                        <item.icon
-                          aria-hidden="true"
-                          className="size-5 flex-none text-gray-400"
-                        />
-                        {item.name}
-                      </Link>
                     ))}
                   </div>
                 </div>
