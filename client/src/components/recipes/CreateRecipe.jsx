@@ -3,6 +3,8 @@ import hatImage from "../../assets/images/hat.png";
 import UserContext from "../../contexts/UserContext.js";
 import { useNavigate } from "react-router";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
+import Swal from "sweetalert2";
+
 export default function CreateRecipe() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
@@ -27,7 +29,13 @@ export default function CreateRecipe() {
     })
       .then((response) => response.json())
       .then((result) => console.log(result))
-      .catch((err) => alert(err.message));
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Sorry...",
+          text: err.message,
+        });
+      });
     loadRecipes();
     navigate("/");
   };

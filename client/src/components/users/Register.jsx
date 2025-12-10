@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import hatImage from "../../assets/images/hat.png";
 import { useContext } from "react";
 import UserContext from "../../contexts/UserContext.js";
+import Swal from "sweetalert2";
 
 export default function Register() {
   const { onRegister } = useContext(UserContext);
@@ -31,7 +32,11 @@ export default function Register() {
         navigate("/");
       })
       .catch((err) => {
-        alert(err.message);
+        Swal.fire({
+          icon: "error",
+          title: "Sorry...",
+          text: err.message,
+        });
       });
   };
 
