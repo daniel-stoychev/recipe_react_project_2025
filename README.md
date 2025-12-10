@@ -27,8 +27,6 @@ Recipe Manager is a web application that allows users to explore, create, and ma
   - **Headlessui** for menu dropdown wrapper & other
   - **Heroicons** for icons
 - **SoftUni Practice Server** for backend CRUD operations
-  <!-- - **TheMealDB API** for fetching recipe data -->
-  <!-- - **AbortController** for managing API requests and handling cancellations -->
 - **Git** for version control
 
 ## Getting Started
