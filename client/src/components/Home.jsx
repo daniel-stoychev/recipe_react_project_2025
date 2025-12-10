@@ -10,7 +10,7 @@ export default function Home() {
   console.log(recipes);
   console.log("======");
 
-  recipes = recipes.slice(recipes.length - 3, recipes.length);
+  recipes = recipes.slice(recipes.length - 3, recipes.length).reverse();
   console.log(recipes);
 
   return (
