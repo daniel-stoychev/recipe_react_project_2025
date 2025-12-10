@@ -7,9 +7,11 @@ export default function Home() {
   useEffect(() => {
     loadRecipes();
   }, []);
+  console.log(recipes);
+  console.log("======");
 
-  recipes = recipes.slice(recipes.length - 6, recipes.length);
-  // console.log(recipes);
+  recipes = recipes.slice(recipes.length - 3, recipes.length);
+  console.log(recipes);
 
   return (
     <>
