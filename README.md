@@ -48,3 +48,11 @@ npm run start
 - Navigate to server folder & run: `node server.js`
 
 Once the server and client are running, navigate to http://localhost:5173 to access the application. Users can browse recipes, register for an account, and explore additional features available to authenticated users.
+
+---
+
+---
+
+---
+
+## TODO Tasks after project defence

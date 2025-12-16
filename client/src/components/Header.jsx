@@ -49,13 +49,13 @@ const filters = [
     to: "/recipe/desserts",
     icon: ChevronDoubleRightIcon,
   },
-  // {
-  //   name: "Online Recipes Database",
-  //   description:
-  //     "If you do not find what you need here - Your digital sous-chef, ready to spice up your culinary adventures!",
-  //   to: "https://www.themealdb.com/",
-  //   icon: ChevronDoubleRightIcon,
-  // },
+  {
+    name: "Online Recipes Database",
+    description:
+      "If you do not find what you need here - Your digital sous-chef, ready to spice up your culinary adventures!",
+    to: "https://www.themealdb.com/",
+    icon: ChevronDoubleRightIcon,
+  },
 ];
 const callsToAction = [
   { name: "Watch demo", to: "#", icon: PlayCircleIcon },
