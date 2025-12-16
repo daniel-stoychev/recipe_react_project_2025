@@ -4,10 +4,8 @@ import Home from "./components/Home.jsx";
 import Catalog from "./components/Catalog.jsx";
 import Register from "./components/users/Register.jsx";
 import Login from "./components/users/Login.jsx";
-import UserProfile from "./components/users/UserProfile.jsx";
-// import UserContext from "./contexts/UserContext.js";
+// import UserProfile from "./components/users/UserProfile.jsx";
 import { UserProvider } from "./contexts/UserContext.jsx";
-import { lazy, Suspense, useState } from "react";
 import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
@@ -15,15 +13,11 @@ import { RecipeProvider } from "./contexts/RecipeContext.jsx";
 import EditRecipe from "./components/recipes/EditRecipe.jsx";
 import Footer from "./components/Footer.jsx";
 import FilterRecipe from "./components/recipes/FilterRecipe.jsx";
+import { lazy, Suspense } from "react";
+import Spinner from "./components/ui/Spinner.jsx";
 
 function App() {
-  //User Create context
-
-  //LazyLoad
-  // const UserProfile = lazy(() => import("./components/users/UserProfile"));
-  // const CreateRecipe = lazy(() =>
-  //   import("./components/recipes/CreateRecipe.jsx")
-  // );
+  const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));
 
   return (
     <UserProvider>
@@ -37,7 +31,11 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route
               path="profile"
-              element={<ProtectedRoute element={UserProfile} />}
+              element={
+                <Suspense fallback={<Spinner />}>
+                  {<ProtectedRoute element={UserProfile} />}
+                </Suspense>
+              }
             />
           </Route>
 
