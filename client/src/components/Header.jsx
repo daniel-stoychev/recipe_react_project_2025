@@ -24,7 +24,7 @@ import {
 import {
   ChevronDownIcon,
   PhoneIcon,
-  PlayCircleIcon,
+  BookOpenIcon,
 } from "@heroicons/react/20/solid";
 import { Link, NavLink } from "react-router";
 
@@ -58,8 +58,8 @@ const filters = [
   },
 ];
 const callsToAction = [
-  { name: "Watch demo", to: "#", icon: PlayCircleIcon },
-  { name: "Contact sales", to: "#", icon: PhoneIcon },
+  { name: "Recipes creation tips", to: "#", icon: BookOpenIcon },
+  { name: "Contact the developer", to: "#", icon: PhoneIcon },
 ];
 
 export default function Header() {
