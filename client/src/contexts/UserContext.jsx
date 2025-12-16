@@ -9,7 +9,7 @@ export const UserContext = createContext({
   onLogout() {},
 });
 
-export const userProvider = ({ children }) => {
+export const UserProvider = ({ children }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({});
 
