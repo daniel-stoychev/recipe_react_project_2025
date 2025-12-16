@@ -1,4 +1,4 @@
-import UserContext from "../contexts/UserContext.js";
+import UserContext from "../contexts/UserContext.jsx";
 import myImage from "../assets/images/recipes_logo.png";
 import { useContext, useState } from "react";
 import {

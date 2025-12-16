@@ -5,7 +5,8 @@ import Catalog from "./components/Catalog.jsx";
 import Register from "./components/users/Register.jsx";
 import Login from "./components/users/Login.jsx";
 import UserProfile from "./components/users/UserProfile.jsx";
-import UserContext from "./contexts/UserContext.js";
+// import UserContext from "./contexts/UserContext.js";
+import { UserProvider } from "./contexts/UserContext.jsx";
 import { lazy, Suspense, useState } from "react";
 import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -17,24 +18,6 @@ import FilterRecipe from "./components/recipes/FilterRecipe.jsx";
 
 function App() {
   //User Create context
-  const navigate = useNavigate();
-  const [user, setUser] = useState({});
-  const loginHandler = (user) => {
-    setUser(user);
-  };
-  const registerHandler = (user) => {
-    setUser(user);
-  };
-  const logoutHandler = () => {
-    setUser({}), navigate("/");
-  };
-  const userContextValue = {
-    user,
-    isAuthenticated: !!user.email,
-    onLogin: loginHandler,
-    onRegister: registerHandler,
-    onLogout: logoutHandler,
-  };
 
   //LazyLoad
   // const UserProfile = lazy(() => import("./components/users/UserProfile"));
@@ -43,7 +26,7 @@ function App() {
   // );
 
   return (
-    <UserContext.Provider value={userContextValue}>
+    <UserProvider>
       <RecipeProvider>
         <Header />
         <Routes>
@@ -73,7 +56,7 @@ function App() {
         </Routes>
         <Footer />
       </RecipeProvider>
-    </UserContext.Provider>
+    </UserProvider>
   );
 }
 

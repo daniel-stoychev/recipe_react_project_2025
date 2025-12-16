@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import hatImage from "../../assets/images/hat.png";
 import { useContext } from "react";
-import UserContext from "../../contexts/UserContext.js";
+import UserContext from "../../contexts/UserContext.jsx";
 import Swal from "sweetalert2";
 
 export default function Register() {

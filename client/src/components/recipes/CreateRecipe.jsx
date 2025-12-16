@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import hatImage from "../../assets/images/hat.png";
-import UserContext from "../../contexts/UserContext.js";
+import UserContext from "../../contexts/UserContext.jsx";
 import { useNavigate } from "react-router";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
 import Swal from "sweetalert2";
