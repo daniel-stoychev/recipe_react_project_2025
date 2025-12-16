@@ -159,6 +159,23 @@ export default function Header() {
                       </div>
                     ))}
                   </div>
+                  <div className="grid grid-cols-2 divide-x divide-gray-900/5 bg-gray-50">
+                    {callsToAction.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.to}
+                        onClick={() => close()} // 👈 also closes on CTA links
+                        className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 
+                         font-semibold text-gray-900 hover:bg-gray-100"
+                      >
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-5 flex-none text-gray-400"
+                        />
+                        {item.name}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </PopoverPanel>
