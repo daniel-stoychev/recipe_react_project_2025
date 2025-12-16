@@ -58,7 +58,9 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
 ## TODO Tasks after project defence
 
 - [] fix AbortController
-- [] fix LazyLoad
+- [x] fix LazyLoad
+  - [x] Profile page
+  - [x] Create page
 - [x] update userContext to use UserContext.jsx
 - [] implement remote recipes API page (`https://www.themealdb.com/api.php`)
 - [] implement "Contact the developer" page (`Modal`)

@@ -6,7 +6,7 @@ import Register from "./components/users/Register.jsx";
 import Login from "./components/users/Login.jsx";
 // import UserProfile from "./components/users/UserProfile.jsx";
 import { UserProvider } from "./contexts/UserContext.jsx";
-import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
+// import CreateRecipe from "./components/recipes/CreateRecipe.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import RecipeDetails from "./components/recipes/RecipeDetails.jsx";
 import { RecipeProvider } from "./contexts/RecipeContext.jsx";
@@ -18,6 +18,9 @@ import Spinner from "./components/ui/Spinner.jsx";
 
 function App() {
   const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));
+  const CreateRecipe = lazy(() =>
+    import("./components/recipes/CreateRecipe.jsx")
+  );
 
   return (
     <UserProvider>
@@ -42,7 +45,11 @@ function App() {
           <Route path="/recipe">
             <Route
               path="create"
-              element={<ProtectedRoute element={CreateRecipe} />}
+              element={
+                <Suspense fallback={<Spinner />}>
+                  {<ProtectedRoute element={CreateRecipe} />}
+                </Suspense>
+              }
             />
             <Route
               path=":recipeId/edit"
