@@ -58,7 +58,7 @@ const filters = [
   },
 ];
 const callsToAction = [
-  { name: "Recipes creation tips", to: "#", icon: BookOpenIcon },
+  { name: "Recipes creation tips", to: "/recipe/tips", icon: BookOpenIcon },
   { name: "Contact the developer", to: "#", icon: PhoneIcon },
 ];
 

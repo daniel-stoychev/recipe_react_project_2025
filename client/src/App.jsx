@@ -15,6 +15,7 @@ import Footer from "./components/Footer.jsx";
 import FilterRecipe from "./components/recipes/FilterRecipe.jsx";
 import { lazy, Suspense } from "react";
 import Spinner from "./components/ui/Spinner.jsx";
+import Tips from "./components/Tips.jsx";
 
 function App() {
   const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));
@@ -57,6 +58,7 @@ function App() {
             />
             <Route path=":recipeId/details" element={<RecipeDetails />} />
             <Route path=":category" element={<FilterRecipe />} />
+            <Route path="tips" element={<Tips />} />
           </Route>
         </Routes>
         <Footer />
