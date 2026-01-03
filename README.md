@@ -62,17 +62,23 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
   - [x] Profile page
   - [x] Create page
 - [x] update userContext to use UserContext.jsx
-- [] implement remote recipes API page (`https://www.themealdb.com/api.php`)
-  - [x] add separate component & update route
-  - [] update page with repipe categories for client to choose from
-    - [x] fetch for API recipe categories data
-  - []
-  - []
+
 - [x] implement "Recipes creation tips" page
 - [] add persitence
 - [] optimize fetch requests
+
   - [] create API folder and add recipeService.js
   - [] refactor RecipeContext
   - [] refactor CreateRecipe
   - [] refactor EditRecipe
   - [] add deleteRecipe to recipeService.js
+
+### implement remote recipes API page (`https://www.themealdb.com/api.php`)
+
+- [] list recipes categories
+  - [x] add separate component & update route
+  - [] update page with repipe categories for client to choose from
+    - [x] fetch for API recipe categories data
+    - [x] list categories with appropriate UI
+  - [] repalce categories images with more nice ones
+  - [] implement <Snpinner/> LazyLoad for categopries
