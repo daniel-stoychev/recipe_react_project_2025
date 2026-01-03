@@ -63,6 +63,10 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
   - [x] Create page
 - [x] update userContext to use UserContext.jsx
 - [] implement remote recipes API page (`https://www.themealdb.com/api.php`)
+  - [x] add separate component & update route
+  - [] update page with repipe categories for client to choose from
+  - []
+  - []
 - [x] implement "Recipes creation tips" page
 - [] add persitence
 - [] optimize fetch requests
