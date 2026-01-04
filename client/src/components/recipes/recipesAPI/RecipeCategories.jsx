@@ -10,7 +10,7 @@ export default function RecipeCategories() {
         const result = await fetchCategories();
         setCategories(result.categories);
       } catch (err) {
-        setError("Failed to fetch categories");
+        throw new Error("Failed to fetch categories!");
       }
     };
     loadCategories();

@@ -53,7 +53,7 @@ const filters = [
     name: "Online Recipes Database",
     description:
       "If you do not find what you need here - Your digital sous-chef, ready to spice up your culinary adventures!",
-    to: "/recipe/categories/",
+    to: "/recipe/api/categories/",
     icon: ChevronDoubleRightIcon,
   },
 ];

@@ -17,6 +17,7 @@ import { lazy, Suspense } from "react";
 import Spinner from "./components/ui/Spinner.jsx";
 import Tips from "./components/Tips.jsx";
 import RecipeCategories from "./components/recipes/recipesAPI/RecipeCategories.jsx";
+import RecipesByCategory from "./components/recipes/recipesAPI/RecipesByCategory.jsx";
 
 function App() {
   const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));
@@ -60,7 +61,8 @@ function App() {
             <Route path=":recipeId/details" element={<RecipeDetails />} />
             <Route path=":category" element={<FilterRecipe />} />
             <Route path="tips" element={<Tips />} />
-            <Route path="categories" element={<RecipeCategories />} />
+            <Route path="api/categories" element={<RecipeCategories />} />
+            <Route path="api/:category" element={<RecipesByCategory />} />
           </Route>
         </Routes>
         <Footer />

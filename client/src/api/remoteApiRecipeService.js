@@ -7,3 +7,11 @@ export const fetchCategories = async () => {
     }
     return response.json();
 };
+
+export const fetchRecipesByCategory = async (id) => {
+    const response = await fetch(`${BASE_URL}/filter.php?c=${id}`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch data!");
+    }
+    return response.json();
+}
