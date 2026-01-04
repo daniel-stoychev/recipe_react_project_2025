@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Spinner from "../ui/Spinner.jsx";
 
 export default function RecipeCategories() {
   const apiCategories =
@@ -65,7 +66,7 @@ export default function RecipeCategories() {
         </div>
       ) : (
         // </div>
-        <p>Loading categories...</p>
+        <Spinner />
       )}
     </>
   );
