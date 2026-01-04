@@ -16,7 +16,7 @@ import FilterRecipe from "./components/recipes/FilterRecipe.jsx";
 import { lazy, Suspense } from "react";
 import Spinner from "./components/ui/Spinner.jsx";
 import Tips from "./components/Tips.jsx";
-import RecipeCategories from "./components/recipes/RecipeCategories.jsx";
+import RecipeCategories from "./components/recipes/recipesAPI/RecipeCategories.jsx";
 
 function App() {
   const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));

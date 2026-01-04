@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
-import Spinner from "../ui/Spinner.jsx";
+import Spinner from "../../ui/Spinner.jsx";
+import { fetchCategories } from "../../../api/remoteApiRecipeService.js";
 
 export default function RecipeCategories() {
-  const apiCategories =
-    "https://www.themealdb.com/api/json/v1/1/categories.php";
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch(apiCategories)
-      .then((response) => response.json())
-      .then((result) => setCategories(result.categories))
-      .catch((err) => alert("Failed listing categories", err));
+    const loadCategories = async () => {
+      try {
+        const result = await fetchCategories();
+        setCategories(result.categories);
+      } catch (err) {
+        setError("Failed to fetch categories");
+      }
+    };
+    loadCategories();
   }, []);
-
-  console.log(categories);
 
   return (
     <>

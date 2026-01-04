@@ -75,10 +75,13 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
 
 ### implement remote recipes API page (`https://www.themealdb.com/api.php`)
 
-- [] list recipes categories
+- [x] list recipes categories
   - [x] add separate component & update route
-  - [] update page with repipe categories for client to choose from
+  - [x] update page with repipe categories for client to choose from
     - [x] fetch for API recipe categories data
     - [x] list categories with appropriate UI
-  - [] repalce categories images with more nice ones
-  - [] implement <Snpinner/> LazyLoad for categopries
+  - [x] implement <Snpinner/> LazyLoad for categopries
+  - [x] create API folder and add remoteApiRecipeService.js
+  - [x] move categories fetch to remoteApiRecipeService.js
+  - [] add fetchRecipesByCategory to remoteApiRecipeService.js
+  - [] add fetchRecipeDetails to remoteApiRecipeService.js
