@@ -18,7 +18,7 @@ export default function RecipeCategories() {
 
   return (
     <>
-      <h1 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+      <h1 className="text-3xl text-center font-bold mt-10">
         Online API recipes categories
       </h1>
       <div className="border-t-4 border-amber-700 mt-4"></div>

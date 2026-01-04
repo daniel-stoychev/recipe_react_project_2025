@@ -83,5 +83,6 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
   - [x] implement <Snpinner/> LazyLoad for categopries
   - [x] create API folder and add remoteApiRecipeService.js
   - [x] move categories fetch to remoteApiRecipeService.js
-  - [] add fetchRecipesByCategory to remoteApiRecipeService.js
+  - [x] move RecipeCategories.jsx to recipesAPI folder
+  - [x] add fetchRecipesByCategory to remoteApiRecipeService.js
   - [] add fetchRecipeDetails to remoteApiRecipeService.js
