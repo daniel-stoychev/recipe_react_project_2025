@@ -18,6 +18,7 @@ import Spinner from "./components/ui/Spinner.jsx";
 import Tips from "./components/Tips.jsx";
 import RecipeCategories from "./components/recipes/recipesAPI/RecipeCategories.jsx";
 import RecipesByCategory from "./components/recipes/recipesAPI/RecipesByCategory.jsx";
+import RecipeApiDetails from "./components/recipes/recipesAPI/RecipeApiDetails.jsx";
 
 function App() {
   const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));
@@ -63,6 +64,10 @@ function App() {
             <Route path="tips" element={<Tips />} />
             <Route path="api/categories" element={<RecipeCategories />} />
             <Route path="api/:category" element={<RecipesByCategory />} />
+            <Route
+              path="api/:category/:mealId"
+              element={<RecipeApiDetails />}
+            />
           </Route>
         </Routes>
         <Footer />
