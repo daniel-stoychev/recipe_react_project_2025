@@ -62,12 +62,11 @@ function App() {
             <Route path=":recipeId/details" element={<RecipeDetails />} />
             <Route path=":category" element={<FilterRecipe />} />
             <Route path="tips" element={<Tips />} />
-            <Route path="api/categories" element={<RecipeCategories />} />
-            <Route path="api/:category" element={<RecipesByCategory />} />
-            <Route
-              path="api/:category/:mealId"
-              element={<RecipeApiDetails />}
-            />
+            <Route path="api">
+              <Route path="categories" element={<RecipeCategories />} />
+              <Route path=":category" element={<RecipesByCategory />} />
+              <Route path=":category/:mealId" element={<RecipeApiDetails />} />
+            </Route>
           </Route>
         </Routes>
         <Footer />
