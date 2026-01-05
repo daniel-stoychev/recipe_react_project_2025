@@ -21,7 +21,6 @@ export default function RecipesByCategory() {
 
     loadReciped();
   }, []);
-  console.log(recipes);
 
   return (
     <>
