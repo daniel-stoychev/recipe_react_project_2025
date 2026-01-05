@@ -15,3 +15,11 @@ export const fetchRecipesByCategory = async (id) => {
     }
     return response.json();
 }
+
+export const fetchRecipeDetails = (recipeId) => {
+    const response = `${BASE_URL}/lookup.php?i=${recipeId}`;
+    if (!response.ok) {
+        throw new Error("Failed to fetch recipe details!");
+    }
+    return response.json();
+}
