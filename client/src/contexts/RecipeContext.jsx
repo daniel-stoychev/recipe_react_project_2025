@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect, useRef } from "react";
+import { recipeArray } from "../api/recipeService.js";
 
 export const RecipesContext = createContext({
   recipes: [],
@@ -18,7 +19,47 @@ export const RecipeProvider = ({ children }) => {
     // };
   }, []);
 
-  // removed services from here
+  const loadRecipes = async () => {
+    try {
+      const recipesArray = await recipeArray();
+      console.log(recipesArray);
+
+      setRecipes(recipesArray);
+    } catch (err) {
+      alert("Error loading recipes:", err);
+    }
+  };
+
+  const likeRecipe = async (id, userId) => {
+    const recipe = recipes.find((recipe) => recipe._id === id);
+
+    if (!recipe) {
+      console.error("Recipe not found with ID:", id);
+      return;
+    }
+
+    const updatedRecipe = {
+      ...recipe,
+      likes: recipe.likes ? recipe.likes + 1 : 1,
+      likedUsers: recipe.likedUsers ? [...recipe.likedUsers, userId] : [userId],
+    };
+
+    try {
+      await fetch(`http://localhost:3030/jsonstore/recipes/${recipe._id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedRecipe),
+      });
+
+      setRecipes((prevRecipes) =>
+        prevRecipes.map((r) => (r._id === id ? updatedRecipe : r))
+      );
+    } catch (err) {
+      alert("Error updating recipe:", err);
+    }
+  };
 
   const value = {
     recipes,
