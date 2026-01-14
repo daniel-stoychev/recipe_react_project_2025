@@ -4,13 +4,14 @@ import UserContext from "../../contexts/UserContext.jsx";
 import { useNavigate } from "react-router";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
 import Swal from "sweetalert2";
+import { createRecipe } from "../../api/recipeService.js";
 
 export default function CreateRecipe() {
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
   const { loadRecipes } = useContext(RecipesContext);
 
-  const createRecipeHandler = (e) => {
+  const createRecipeHandler = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
@@ -20,22 +21,32 @@ export default function CreateRecipe() {
     data._ownerName = user.username;
 
     // console.log(data);
-    fetch("http://localhost:3030/jsonstore/recipes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((err) => {
-        Swal.fire({
-          icon: "error",
-          title: "Sorry...",
-          text: err.message,
-        });
+    // fetch("http://localhost:3030/jsonstore/recipes", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((response) => response.json())
+    //   .then((result) => console.log(result))
+    //   .catch((err) => {
+    //     Swal.fire({
+    //       icon: "error",
+    //       title: "Sorry...",
+    //       text: err.message,
+    //     });
+    //   });
+
+    try {
+      await createRecipe(data);
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Sorry...",
+        text: err.message,
       });
+    }
     loadRecipes();
     navigate("/");
   };

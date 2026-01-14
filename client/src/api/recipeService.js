@@ -42,3 +42,20 @@ export const editRecipe = async (recipeId, recipeData) => {
     }
     return response.json();
 }
+
+export const createRecipe = async (recipeData) => {
+    const response = await fetch(BASE_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(recipeData)
+    })
+
+    if (!response.ok) {
+        throw new Error("Failed to create recipe!");
+
+    }
+
+    return response.json();
+}
