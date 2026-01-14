@@ -2,6 +2,7 @@ import hatImage from "../../assets/images/hat.png";
 import { useContext, useState } from "react";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
 import { useNavigate, useParams } from "react-router";
+import { editRecipe } from "../../api/recipeService.js";
 
 export default function EditRecipe() {
   const navigate = useNavigate();
@@ -12,22 +13,10 @@ export default function EditRecipe() {
 
   const updateRecipeHandler = async (e) => {
     e.preventDefault();
-
-    console.log("EDIT TEST");
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    console.log(data);
 
-    await fetch(`http://localhost:3030/jsonstore/recipes/${recipeId}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((result) => console.log(result))
-      .catch((err) => alert(err.message));
+    await editRecipe(recipeId, data);
     loadRecipes();
     navigate(`/recipe/${recipeId}/details`);
   };

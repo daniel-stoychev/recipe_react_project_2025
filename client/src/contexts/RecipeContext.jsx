@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect, useRef } from "react";
-import { allRecipes, updateRecipe } from "../api/recipeService.js";
+import { allRecipes, likeRecipeRequest } from "../api/recipeService.js";
 
 const RecipesContext = createContext({
   recipes: [],
@@ -43,7 +43,7 @@ export const RecipeProvider = ({ children }) => {
     };
 
     try {
-      await updateRecipe(recipe._id, updatedRecipe);
+      await likeRecipeRequest(recipe._id, updatedRecipe);
 
       setRecipes((prevRecipes) =>
         prevRecipes.map((r) => (r._id === id ? updatedRecipe : r))

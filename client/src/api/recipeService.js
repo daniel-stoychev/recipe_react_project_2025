@@ -15,7 +15,7 @@ export async function allRecipes() {
     return recipesArray;
 }
 
-export const updateRecipe = async (id, updatedRecipe) => {
+export const likeRecipeRequest = async (id, updatedRecipe) => {
     const response = await fetch(`${BASE_URL}/${id}`, {
         method: 'PATCH',
         headers: {
@@ -25,8 +25,20 @@ export const updateRecipe = async (id, updatedRecipe) => {
     })
     if (!response.ok) {
         throw new Error("Failed to update recipe!");
-
     }
+    return response.json();
+}
 
+export const editRecipe = async (recipeId, recipeData) => {
+    const response = await fetch(`${BASE_URL}/${recipeId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(recipeData)
+    });
+    if (!response.ok) {
+        throw new Error("Failed to update recipe!");
+    }
     return response.json();
 }
