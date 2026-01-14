@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import UserContext from "../../contexts/UserContext.jsx";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
-import { recipeDetailsRequest } from "../../api/recipeService.js";
+import { deleteRecipe, recipeDetailsRequest } from "../../api/recipeService.js";
 import Swal from "sweetalert2";
 
 export default function RecipeDetails() {
@@ -46,9 +46,7 @@ export default function RecipeDetails() {
     }
 
     try {
-      await fetch(`http://localhost:3030/jsonstore/recipes/${recipe._id}`, {
-        method: "DELETE",
-      });
+      await deleteRecipe(recipeId);
       navigate("/");
     } catch (err) {
       alert("Unable to delete recipe: ", err.message);

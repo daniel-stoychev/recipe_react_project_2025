@@ -71,7 +71,7 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
   - [x] update likeRecipe functionality
   - [x] refactor EditRecipe
   - [x] refactor CreateRecipe
-  - [] refactor RecipeDetails
+  - [x] refactor RecipeDetails
   - [] add deleteRecipe to recipeService.js
   - [] refactor RecipeContext
 
