@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useRef } from "react";
 import { allRecipes, likeRecipeRequest } from "../api/recipeService.js";
+import Swal from "sweetalert2";
 
 const RecipesContext = createContext({
   recipes: [],

@@ -59,3 +59,12 @@ export const createRecipe = async (recipeData) => {
 
     return response.json();
 }
+
+export const recipeDetailsRequest = async (recipeId) => {
+    const response = await fetch(`${BASE_URL}/${recipeId}`);
+    if (!response.ok) {
+        throw new Error("Failed to fetch recipe details!");
+
+    }
+    return response.json();
+}

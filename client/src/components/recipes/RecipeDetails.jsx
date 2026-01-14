@@ -4,6 +4,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import UserContext from "../../contexts/UserContext.jsx";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
+import { recipeDetailsRequest } from "../../api/recipeService.js";
+import Swal from "sweetalert2";
 
 export default function RecipeDetails() {
   const { user, isAuthenticated } = useContext(UserContext);
@@ -13,16 +15,23 @@ export default function RecipeDetails() {
 
   const [recipe, setRecipe] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:3030/jsonstore/recipes/${recipeId}`)
-      .then((response) => response.json())
-      .then((result) => {
+    async function fetchData() {
+      try {
+        const result = await recipeDetailsRequest(recipeId);
         setRecipe(result);
-      })
-      .catch((err) => alert(err.message));
+      } catch (err) {
+        Swal.fire({
+          icon: "error",
+          title: "Sorry...",
+          text: err.message,
+        });
+      }
+    }
+    if (recipeId) {
+      // Only fetch if recipeId is available
+      fetchData();
+    }
   }, [recipeId]);
-
-  //   console.log(user);
-  //   console.log(recipe);
 
   if (user._id === recipe._ownerId) {
     isOwner = true;

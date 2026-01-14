@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import hatImage from "../../assets/images/hat.png";
 import UserContext from "../../contexts/UserContext.jsx";
 import { useNavigate } from "react-router";
@@ -19,24 +19,6 @@ export default function CreateRecipe() {
     data._createdOn = Date.now();
     data._ownerId = user._id;
     data._ownerName = user.username;
-
-    // console.log(data);
-    // fetch("http://localhost:3030/jsonstore/recipes", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((result) => console.log(result))
-    //   .catch((err) => {
-    //     Swal.fire({
-    //       icon: "error",
-    //       title: "Sorry...",
-    //       text: err.message,
-    //     });
-    //   });
 
     try {
       await createRecipe(data);
