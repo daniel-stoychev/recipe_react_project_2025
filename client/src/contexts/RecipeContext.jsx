@@ -24,7 +24,11 @@ export const RecipeProvider = ({ children }) => {
       const recipesArray = await allRecipes();
       setRecipes(recipesArray);
     } catch (err) {
-      alert("Error loading recipes:", err);
+      Swal.fire({
+        icon: "error",
+        title: "Sorry...",
+        text: err.message,
+      });
     }
   };
 
