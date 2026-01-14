@@ -67,7 +67,7 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
 - [] add persitence
 - [] optimize fetch requests
 
-  - [] create API folder and add recipeService.js
+  - [x] create API folder and add recipeService.js
   - [] refactor RecipeContext
   - [] refactor CreateRecipe
   - [] refactor EditRecipe

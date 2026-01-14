@@ -3,7 +3,7 @@ import { FaUser, FaThumbsUp, FaCheck } from "react-icons/fa";
 import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router";
 import UserContext from "../../contexts/UserContext.jsx";
-import { RecipesContext } from "../../contexts/RecipeContext.jsx";
+import RecipesContext from "../../contexts/RecipeContext.jsx";
 
 export default function RecipeDetails() {
   const { user, isAuthenticated } = useContext(UserContext);

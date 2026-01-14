@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect, useRef } from "react";
-import { recipeArray } from "../api/recipeService.js";
+import { allRecipes, updateRecipe } from "../api/recipeService.js";
 
-export const RecipesContext = createContext({
+const RecipesContext = createContext({
   recipes: [],
   loadRecipes: () => {},
   likeRecipe: () => {},
@@ -21,9 +21,7 @@ export const RecipeProvider = ({ children }) => {
 
   const loadRecipes = async () => {
     try {
-      const recipesArray = await recipeArray();
-      console.log(recipesArray);
-
+      const recipesArray = await allRecipes();
       setRecipes(recipesArray);
     } catch (err) {
       alert("Error loading recipes:", err);
@@ -45,13 +43,7 @@ export const RecipeProvider = ({ children }) => {
     };
 
     try {
-      await fetch(`http://localhost:3030/jsonstore/recipes/${recipe._id}`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedRecipe),
-      });
+      await updateRecipe(recipe._id, updatedRecipe);
 
       setRecipes((prevRecipes) =>
         prevRecipes.map((r) => (r._id === id ? updatedRecipe : r))
