@@ -7,7 +7,6 @@ Recipe Manager is a web application that allows users to explore, create, and ma
 ## Application Structure
 
 - **Public Part**:
-
   - Home Page
   - Recipe Catalog
   - Recipe Details
@@ -64,9 +63,7 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
 - [x] update userContext to use UserContext.jsx
 
 - [x] implement "Recipes creation tips" page
-- [] add persitence
 - [x] optimize fetch requests
-
   - [x] create API folder and add recipeService.js
   - [x] update likeRecipe functionality
   - [x] refactor EditRecipe

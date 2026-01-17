@@ -6,7 +6,6 @@ const BASE_URL = "http://localhost:3030/jsonstore/recipes";
 
 export async function allRecipes() {
     const response = await fetch(BASE_URL);
-    // {signal: controller.signal}
     if (!response.ok) {
         throw new Error("Failed to fetch recipes!");
     }

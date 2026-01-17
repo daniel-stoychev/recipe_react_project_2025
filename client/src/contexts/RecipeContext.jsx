@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, useRef } from "react";
+import { createContext, useState, useEffect } from "react";
 import { allRecipes, likeRecipeRequest } from "../api/recipeService.js";
 import Swal from "sweetalert2";
 
@@ -13,11 +13,6 @@ export const RecipeProvider = ({ children }) => {
   // const abortRef = useRef(null);
   useEffect(() => {
     loadRecipes();
-    // return () => {
-    //   if (abortRef.current) {
-    //     abortRef.current.abort();
-    //   }
-    // };
   }, []);
 
   const loadRecipes = async () => {
@@ -51,7 +46,7 @@ export const RecipeProvider = ({ children }) => {
       await likeRecipeRequest(recipe._id, updatedRecipe);
 
       setRecipes((prevRecipes) =>
-        prevRecipes.map((r) => (r._id === id ? updatedRecipe : r))
+        prevRecipes.map((r) => (r._id === id ? updatedRecipe : r)),
       );
     } catch (err) {
       alert("Error updating recipe:", err);
