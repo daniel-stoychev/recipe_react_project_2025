@@ -65,15 +65,14 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
 
 - [x] implement "Recipes creation tips" page
 - [] add persitence
-- [] optimize fetch requests
+- [x] optimize fetch requests
 
   - [x] create API folder and add recipeService.js
   - [x] update likeRecipe functionality
   - [x] refactor EditRecipe
   - [x] refactor CreateRecipe
   - [x] refactor RecipeDetails
-  - [] add deleteRecipe to recipeService.js
-  - [] refactor RecipeContext
+  - [x] add deleteRecipe to recipeService.js
 
 ### implement remote recipes API page (`https://www.themealdb.com/api.php`)
 
