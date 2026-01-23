@@ -16,8 +16,8 @@ export const fetchRecipesByCategory = async (id, signal) => {
     return response.json();
 }
 
-export const fetchRecipeDetails = async (recipeId) => {
-    const response = await fetch(`${BASE_URL}/lookup.php?i=${recipeId}`);
+export const fetchRecipeDetails = async (recipeId, signal) => {
+    const response = await fetch(`${BASE_URL}/lookup.php?i=${recipeId}`, { signal });
     if (!response.ok) {
         throw new Error("Failed to fetch recipe details!");
     }

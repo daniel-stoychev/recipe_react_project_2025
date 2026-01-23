@@ -56,7 +56,7 @@ Once the server and client are running, navigate to http://localhost:5173 to acc
 
 ## TODO Tasks after project defence
 
-- [] fix AbortController
+- [x] fix AbortController
 - [x] fix LazyLoad
   - [x] Profile page
   - [x] Create page

@@ -9,15 +9,21 @@ export default function RecipeDetails() {
   console.log(recipeId);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     const loadRecipeData = async () => {
       try {
-        const recipeDetails = await fetchRecipeDetails(recipeId);
+        const recipeDetails = await fetchRecipeDetails(recipeId, signal);
         setRecipeDetails(recipeDetails.meals[0]);
       } catch (err) {
         throw new Error("Failed to recipe data!");
       }
     };
     loadRecipeData();
+    return () => {
+      console.log("Request aborted!");
+      controller.abort();
+    };
   }, []);
 
   console.log(recipeDetails);

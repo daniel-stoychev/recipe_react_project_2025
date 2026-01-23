@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import { fetchRecipesByCategory } from "../../../api/remoteApiRecipeService.js";
 import Spinner from "../../ui/Spinner.jsx";
 
@@ -51,12 +51,12 @@ export default function RecipesByCategory() {
               <h2 className="text-xl font-semibold text-gray-800 mt-4">
                 {meal.strMeal}
               </h2>
-              <a
-                href={`/recipe/api/${category}/${meal.idMeal}`}
+              <Link
+                to={`/recipe/api/${category}/${meal.idMeal}`}
                 className="text-amber-900 font-semibold hover:underline mt-4 inline-block"
               >
                 View Recipe
-              </a>
+              </Link>
             </div>
           ))}
         </div>
