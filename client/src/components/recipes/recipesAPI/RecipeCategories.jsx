@@ -5,15 +5,24 @@ import { fetchCategories } from "../../../api/remoteApiRecipeService.js";
 export default function RecipeCategories() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     const loadCategories = async () => {
       try {
-        const result = await fetchCategories();
+        const result = await fetchCategories(signal);
         setCategories(result.categories);
       } catch (err) {
+        if (err.name === "AbortError") {
+          console.log("Fetch for categories was aborted!");
+        }
         throw new Error("Failed to fetch categories!");
       }
     };
     loadCategories();
+    return () => {
+      console.log("Request aborted");
+      controller.abort();
+    };
   }, []);
 
   return (
@@ -37,7 +46,7 @@ export default function RecipeCategories() {
                 "Side",
                 "Breakfast",
                 "Vegetarian",
-              ].includes(category.strCategory)
+              ].includes(category.strCategory),
             )
             .map((category) => (
               <div

@@ -3,10 +3,10 @@ import { Link } from "react-router";
 import RecipesContext from "../contexts/RecipeContext.jsx";
 
 export default function Home() {
-  let { recipes, loadRecipes } = useContext(RecipesContext);
-  useEffect(() => {
-    loadRecipes();
-  }, []);
+  let { recipes } = useContext(RecipesContext);
+  // useEffect(() => {
+  //   loadRecipes();
+  // }, []);
 
   recipes = recipes.slice(recipes.length - 3, recipes.length).reverse();
 

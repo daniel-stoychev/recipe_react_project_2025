@@ -4,8 +4,9 @@
 
 const BASE_URL = "http://localhost:3030/jsonstore/recipes";
 
-export async function allRecipes() {
-    const response = await fetch(BASE_URL);
+export async function allRecipes(signal) {
+    // const controller = new AbortController();
+    const response = await fetch(BASE_URL, { signal });
     if (!response.ok) {
         throw new Error("Failed to fetch recipes!");
     }

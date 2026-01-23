@@ -3,10 +3,10 @@ import { Link } from "react-router";
 import RecipesContext from "../contexts/RecipeContext.jsx";
 
 export default function Catalog() {
-  const { recipes, loadRecipes } = useContext(RecipesContext);
-  useEffect(() => {
-    loadRecipes();
-  }, []);
+  const { recipes } = useContext(RecipesContext);
+  // useEffect(() => {
+  //   loadRecipes();
+  // }, []);
 
   return (
     <>

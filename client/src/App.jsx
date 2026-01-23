@@ -22,8 +22,8 @@ import RecipeApiDetails from "./components/recipes/recipesAPI/RecipeApiDetails.j
 
 function App() {
   const UserProfile = lazy(() => import("./components/users/UserProfile.jsx"));
-  const CreateRecipe = lazy(() =>
-    import("./components/recipes/CreateRecipe.jsx")
+  const CreateRecipe = lazy(
+    () => import("./components/recipes/CreateRecipe.jsx"),
   );
 
   return (
