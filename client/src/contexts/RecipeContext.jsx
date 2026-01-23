@@ -11,20 +11,29 @@ const RecipesContext = createContext({
 export const RecipeProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   // const abortRef = useRef(null);
-  useEffect(() => {
-    loadRecipes();
-  }, []);
+  // useEffect(() => {
+  //   const controller = new AbortController();
+  //   const signal = controller.signal;
+  //   loadRecipes(signal);
+  //   return () => {
+  //     console.log('aborted');
+  //     controller.abort();
 
-  const loadRecipes = async () => {
+  //   }
+  // }, []);
+
+  const loadRecipes = async (signal) => {
     try {
-      const recipesArray = await allRecipes();
+      const recipesArray = await allRecipes(signal);
       setRecipes(recipesArray);
     } catch (err) {
-      Swal.fire({
-        icon: "error",
-        title: "Sorry...",
-        text: err.message,
-      });
+      throw new Error("Failed to fetch!");
+
+      // Swal.fire({
+      //   icon: "error",
+      //   title: "Sorry...",
+      //   text: err.message,
+      // });
     }
   };
 

@@ -3,10 +3,16 @@ import { Link } from "react-router";
 import RecipesContext from "../contexts/RecipeContext.jsx";
 
 export default function Home() {
-  let { recipes } = useContext(RecipesContext);
-  // useEffect(() => {
-  //   loadRecipes();
-  // }, []);
+  let { recipes, loadRecipes } = useContext(RecipesContext);
+  useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
+    loadRecipes(signal);
+    return () => {
+      console.log("Home component unmounting, aborting its fetch.");
+      controller.abort();
+    };
+  }, []);
 
   recipes = recipes.slice(recipes.length - 3, recipes.length).reverse();
 

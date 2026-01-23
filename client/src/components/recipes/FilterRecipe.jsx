@@ -3,16 +3,16 @@ import { Link, useParams } from "react-router";
 import RecipesContext from "../../contexts/RecipeContext.jsx";
 
 export default function FilterRecipe() {
-  const { recipes, loadRecipes } = useContext(RecipesContext);
-  useEffect(() => {
-    loadRecipes();
-  }, []);
+  const { recipes } = useContext(RecipesContext);
+  // useEffect(() => {
+  //   loadRecipes();
+  // }, []);
 
   const param = useParams();
   const category = param.category;
 
   const filteredRecipes = recipes.filter(
-    (recipe) => recipe.category === category
+    (recipe) => recipe.category === category,
   );
   console.log(filteredRecipes);
 
