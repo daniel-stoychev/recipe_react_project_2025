@@ -8,8 +8,8 @@ export const fetchCategories = async (signal) => {
     return response.json();
 };
 
-export const fetchRecipesByCategory = async (id) => {
-    const response = await fetch(`${BASE_URL}/filter.php?c=${id}`);
+export const fetchRecipesByCategory = async (id, signal) => {
+    const response = await fetch(`${BASE_URL}/filter.php?c=${id}`, { signal });
     if (!response.ok) {
         throw new Error("Failed to fetch data!");
     }

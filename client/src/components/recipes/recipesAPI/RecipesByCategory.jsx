@@ -10,9 +10,11 @@ export default function RecipesByCategory() {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
+    const controller = new AbortController();
+    const signal = controller.signal;
     const loadReciped = async () => {
       try {
-        const result = await fetchRecipesByCategory(category);
+        const result = await fetchRecipesByCategory(category, signal);
         setRecipes(result.meals);
       } catch (err) {
         throw new Error("Failed to fetch recipes!");
@@ -20,6 +22,10 @@ export default function RecipesByCategory() {
     };
 
     loadReciped();
+    return () => {
+      console.log("Request aborted");
+      controller.abort();
+    };
   }, []);
 
   return (

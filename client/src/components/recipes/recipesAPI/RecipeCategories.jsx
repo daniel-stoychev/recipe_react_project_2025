@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Spinner from "../../ui/Spinner.jsx";
 import { fetchCategories } from "../../../api/remoteApiRecipeService.js";
+import { Link } from "react-router";
 
 export default function RecipeCategories() {
   const [categories, setCategories] = useState([]);
@@ -66,12 +67,12 @@ export default function RecipeCategories() {
                     ? category.strCategoryDescription.slice(0, 200) + "..."
                     : category.strCategoryDescription}
                 </p>
-                <a
-                  href={`/recipe/api/${category.strCategory}`}
+                <Link
+                  to={`/recipe/api/${category.strCategory}`}
                   className="text-amber-900 font-semibold hover:underline mt-4 inline-block"
                 >
                   View Recipes
-                </a>
+                </Link>
               </div>
             ))}
         </div>
